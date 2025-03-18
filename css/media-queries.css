@@ -1,0 +1,213 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+
+/* TITLES */
+@media screen and (max-width: 768px) {
+    .title-container .title-text {  
+        font-size: 4vh;
+    }
+}
+
+/* SECTIONS */
+/* Global section styling */
+@media screen and (max-width: 768px) {
+    .section {  
+        min-height: 100vh;
+        padding: 3vh 3vw;
+        padding-bottom: 15px;
+    }
+}
+
+
+
+
+
+
+
+/* HEADER */
+@media screen and (max-width: 768px) {
+    /* Hide the menu by default */
+
+    .header {
+        display: flex;
+        width: 100%;
+        height: 50px;
+        padding-left: 10px;
+        align-items: center;
+    }
+    
+    .menu-item-container {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: fit-content;
+        height: fit-content;
+        background: var(--dark);
+        border: var(--dark) 1px solid;
+        display: flex;
+        flex-direction: column;
+        padding-top: 50px;
+        
+        transition: right 0.2s steps(3, end) forwards;
+    }
+
+    .menu-item {
+        display: flex;
+        text-align: center;
+        width: 100%;
+        text-decoration: none;
+        padding: 15px 20px;
+        cursor: pointer;
+        display: block;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1rem;
+        font-weight: 300;
+        color: var(--light);
+    }
+    
+    .contact-menu-item {
+        display:flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .dropdown-content {
+        padding: 0px;
+        transition: height 0.2s steps(3, end), padding 0.1s steps(1, end);
+        margin-top: .3rem;
+
+    }
+
+    .contact-menu-item:hover .dropdown-content {
+        margin-top: .3rem;
+    }
+
+    /* Menu Button (Circular) */
+    .menu-button {
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        background:var(--yellow);
+        border: var(--dark) 1px solid;
+        border-radius: 100px;
+        cursor: pointer;
+        z-index: 1100;
+        transition: background 0.2s steps(2, end);
+    }
+
+    /* Menu Open */
+    .menu-open .menu-item-container {
+        right: 0;
+    }
+
+    /* Change button to red when menu is open */
+    .menu-open .menu-button {
+        background: var(--red);
+    }
+}
+
+
+
+
+
+/* HERO */
+@media screen and (max-width: 768px) {
+
+    .hero-section {
+        padding-top: 3vh;
+        bottom: 0;
+    }
+
+    .hero-triangles {
+        position: absolute;
+        transform: translateX(-50%); /* Center the triangle container */
+        height: 50vh;
+
+    }
+
+    .hero-triangle {
+        position: absolute;
+        width: 100vw;
+        height: 30vh;       /* Allow full height */
+
+    }
+
+    .t2 {
+        display: flex;
+        padding-bottom: 5vh;
+        width: 100vw;
+        height: 600px;
+    }
+    .t1 {
+        display: flex;
+        padding-bottom: 8vh;
+        height: 550px;
+    }
+
+    .t3 {
+        display: flex;
+        padding-bottom: 3vh;
+        height: 320px;
+    }
+
+    .t4 {
+        display: flex;
+        padding-bottom: vh;
+        height: 250px;
+    }
+
+    .hero-section {
+        padding: 5vh 3vw;
+    }
+
+    .hero-items-container {
+        position: relative;
+        z-index: 5; /* Always on top */
+        max-width: 600px;
+        gap: 1rem;
+    }
+    
+    .bt-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 2rem;
+    }
+    
+    .hero-h1 {
+        font-size: 2em;
+        line-height: 1;
+    }
+    
+    .hero-p {
+        font-size: 1.1em;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+}
+
+
+
+/* MANIFESTO */
+
+@media screen and (max-width: 768px) {
+
+    .manifesto-line {  
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .manifesto-line .manifesto-big {  
+        height: 8vh;
+    }
+    .manifesto-small {  
+        font-size: 1rem;
+    }
+}

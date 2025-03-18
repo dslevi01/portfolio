@@ -1,0 +1,35 @@
+.manifesto-line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    opacity: 0;
+    transform: translateX(-50px); /* Move in from the left */
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1.4), 
+                opacity 0.15s ease-out;
+}
+
+.manifesto-line.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.manifesto-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2vh;
+}
+
+.manifesto-small {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    align-self: center;
+}
+
+.manifesto-big{
+    padding: 0;
+}

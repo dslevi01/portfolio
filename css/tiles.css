@@ -1,0 +1,90 @@
+/* Base Tile Styles */
+.tile {
+    border: var(--dark) 1px solid;
+    transition: background-color 0.1s ease-in-out;
+    border-radius: 10px;
+}
+
+/* Tile Sizes */
+.size1x1 {
+    width: 5vh;
+    height: 5vh;
+}
+
+.size1x2 {
+    width: 5vh;
+    height: 10vh;
+}
+
+.size1x3 {
+    width: 5vh;
+    height: 15vh;
+}
+
+.size2x2 {
+    width: 10vh;
+    height: 10vh;
+}
+
+.size2x3 {
+    width: 10vh;
+    height: 15vh;
+}
+
+/* Tile Colors */
+.red {
+    background-color: var(--red);
+}
+
+.red-d {
+    background-color: var(--red-d);
+}
+
+.yellow {
+    background-color: var(--yellow);
+}
+
+.yellow-d {
+    background-color: var(--yellow-d);
+}
+
+.green {
+    background-color: var(--green);
+}
+
+.green-d {
+    background-color: var(--green-d);
+}
+
+.dark {
+    background-color: var(--dark);
+}
+
+.nofill {
+    background-color: transparent;
+}
+
+/* Tile Containers */
+.tiles-horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 1vh;
+    align-items: center;
+}
+
+.tiles-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    justify-content: center;
+}
+
+/* Orientation Modifiers */
+.vertical {
+    transform: rotate(90deg);
+}
+
+.title-text {
+    border-radius: 10px;
+    font-size: 64px;
+}

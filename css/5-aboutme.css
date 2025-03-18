@@ -1,0 +1,11 @@
+.about-me-frame {
+  display: flex;
+  align-items: center;
+}
+
+.aboutme-image {
+  width: auto;
+  max-height: 200px;
+  border-radius: left 10%;
+  margin: 0 auto;
+}

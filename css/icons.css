@@ -1,0 +1,41 @@
+/* Social Icons Default State */
+.social-icon[src*="email.svg"] {
+    transition: content 0.1s;
+}
+
+.social-icon[src*="facebook.svg"] {
+    transition: content 0.1s;
+}
+
+.social-icon[src*="instagram.svg"] {
+    transition: content 0.1s;
+}
+
+.social-icon[src*="youtube.svg"] {
+    transition: content 0.1s;
+}
+
+.social-icon[src*="whatsapp.svg"] {
+    transition: content 0.1s;
+}
+
+/* Social Icons Hover State */
+.social-icon[src*="email.svg"]:hover {
+    content: url("../assets/email-hover.svg");
+}
+
+.social-icon[src*="facebook.svg"]:hover {
+    content: url("../assets/facebook-hover.svg");
+}
+
+.social-icon[src*="instagram.svg"]:hover {
+    content: url("../assets/instagram-hover.svg");
+}
+
+.social-icon[src*="youtube.svg"]:hover {
+    content: url("../assets/youtube-hover.svg");
+}
+
+.social-icon[src*="whatsapp.svg"]:hover {
+    content: url("../assets/whatsapp-hover.svg");
+}

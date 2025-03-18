@@ -1,0 +1,94 @@
+/* Base Button Styles */
+.project-bt, .nature-bt, .trips-bt, .heart-bt, .tile-bt {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Button Icons */
+.project-bt img, .nature-bt img, .trips-bt img, .heart-bt img, .tile-bt img {
+    width: 46.5px;
+    height: 46.5px;
+    transition: content 0.1s ease-in-out, transform 0.1s ease-in-out;
+}
+
+/* Arrow Rotations */
+.right-arrow {
+    transform: rotate(0deg);
+}
+
+.left-arrow {
+    transform: rotate(180deg);
+}
+
+.up-arrow {
+    transform: rotate(-90deg);
+}
+
+.down-arrow {
+    transform: rotate(90deg);
+}
+
+.top-arrow {
+    transform: rotate(-90deg);
+}
+
+/* Hover States for Icon Buttons */
+.project-bt:hover img {
+    content: url("../assets/arrow-hover.svg");
+}
+
+.heart-bt:hover img {
+    content: url("../assets/heart-hover.svg");
+}
+
+.tile-bt:hover img {
+    content: url("../assets/arrow-yellow-hover.svg");
+}
+
+.play:hover {
+    content: url("../assets/play-hover.svg");
+}
+
+.sound:hover {
+    content: url("../assets/sound-hover.svg");
+}
+
+
+.bt {
+    border: var(--dark) 1px solid;
+    padding: 0.75rem 1.5rem;
+    border-radius: 100px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 3%;    
+    cursor: pointer;
+    background-size: cover;
+    transition: background-image 0.1s ease-in-out;
+    height: 46px;
+}
+
+.bt-primary {
+    background-color: var(--yellow);
+    color: var(--dark)
+}
+
+.bt-primary:hover {
+    background-color: var(--yellow-d);
+    color: var(--yellow);
+}
+
+.bt-secondary {
+    background-color: var(--green);
+    color: var(--dark)
+}
+
+.bt-secondary:hover {
+    background-color: var(--green-d);
+    color: var(--green)
+}

@@ -1,0 +1,21 @@
+:root {
+    /* Base Colors */
+    --dark: #2E2E2E;
+    --light: #FAF3DB;
+    --light-d: #D3CBAE; 
+    
+    /* Primary Colors */
+    --yellow: #EEC659;
+    --yellow-d: #B49541;
+    
+    --green: #A3B18B;
+    --green-d: #707C5C;
+    
+    --red: #D97D68;
+    --red-d: #AD6251;
+}
+
+.nofill { 
+    background-color: transparent;
+    border: 1px solid var(--dark);
+}
