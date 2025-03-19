@@ -1,21 +1,25 @@
 /* GENERAL */
 
-.project-section{
+.projects-section{
     font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    align-self: center;
+    min-width: 1222px;
+    gap: 15px;
+
 }
 
 .project-title-description-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 1.5rem;
+    gap: 15px;
     align-items: center;
     height: 75px;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
+    max-width: 1065px;
 }
 
 .project-title-container{
@@ -55,7 +59,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    width: 100%;
+    gap: 0px;
+    margin-bottom: 15px;
 }
 
 .project{
@@ -65,6 +71,7 @@
     justify-content: space-between;
     width: 100%;
     gap: 15px;
+    margin-bottom: 15px;
 }
 
 .project-frame{
@@ -86,6 +93,8 @@
     width: 100%;
     gap: 15px;
     background-color: var(--light-d);
+    height: 108px;
+    margin: 0;
 }
 
 
@@ -101,17 +110,14 @@
 
 .project-name{
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 500;
+    margin: 0;
 }
 
 .project-tags{
     font-size: 1.2em;
-    font-weight: 200;
+    font-weight: 300;
     margin: 0;
-}
-
-.top-arrow {
-    transition: transform 0s;
 }
 
 .project-dropdown {
@@ -240,4 +246,72 @@
 .game-description-container {
     background-color: var(--red);
     color: var(--light);
+}
+
+/* GRAPHIC DESIGN */
+
+.design-title-container{
+    background-color: var(--yellow);
+    color: var(--dark);
+}
+
+.design-description-container{
+    background-color: var(--yellow);
+    color: var(--dark);
+}
+
+
+/* SKETCHES DESIGN */
+
+.sketches-title-container{
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+.sketches-description-container{
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+.sketches-project{
+    display: flex;
+    flex-direction: column;
+    max-width: 1065px;
+}
+
+.sketches-bt-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    height: 100%;
+}
+
+.sketches-top-bar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 15px;
+    width: 100%;
+    gap: 15px;
+    background-color: var(--light-d);
+    height: 108px;
+    margin: 0;
+}
+
+.sketches-image{
+    display: block;
+    max-height: 200px;
+}
+
+.sketches-container{
+    display: grid;
+
+}
+
+.sketches-frame{
+    display: block;
+    width: 100%;
+    height: 800px;
 }

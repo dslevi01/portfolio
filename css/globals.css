@@ -5,6 +5,17 @@
     box-sizing: border-box;
 }
 
+img[src$=".svg"],
+img[src$=".jpg"],
+img[src$=".jpeg"],
+embed[type="application/pdf"],
+object[type="application/pdf"] {
+    user-drag: none; /* Prevents dragging in WebKit browsers */
+    -webkit-user-drag: none; /* Explicitly for Safari */
+    pointer-events: none; /* Optional: Prevents interaction if needed */
+}
+
+
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -38,6 +49,7 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     overflow-x: hidden;
     font-family: 'Montserrat', sans-serif;
     overscroll-behavior-y: contain;
@@ -83,6 +95,7 @@ textarea,
 /* Global title styling */
 .title-container {
     width: 100%;
+    max-width: 1065px;
     display: flex;
     border: 1px solid var(--dark);
     border-radius: 10px;
@@ -90,6 +103,7 @@ textarea,
     margin-bottom: 2rem;
     align-items: center;
     justify-content: center;
+    max-height: 108px;
 }
 
 .title-text {

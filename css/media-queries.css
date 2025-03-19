@@ -7,7 +7,13 @@
 /* TITLES */
 @media screen and (max-width: 768px) {
     .title-container .title-text {  
-        font-size: 4vh;
+        font-size: 5vh;
+        
+    }
+
+    .title-container{
+        margin-bottom: 15px;
+        padding: 10px 15px;
     }
 }
 
@@ -16,7 +22,7 @@
 @media screen and (max-width: 768px) {
     .section {  
         min-height: 100vh;
-        padding: 3vh 3vw;
+        padding:0 3vw;
         padding-bottom: 15px;
     }
 }
@@ -121,8 +127,10 @@
 @media screen and (max-width: 768px) {
 
     .hero-section {
-        padding-top: 3vh;
+        padding-top: 5vh;
         bottom: 0;
+        height: 100vh;
+        margin: 0;
     }
 
     .hero-triangles {
@@ -141,7 +149,7 @@
 
     .t2 {
         display: flex;
-        padding-bottom: 5vh;
+        padding-bottom: 4vh;
         width: 100vw;
         height: 600px;
     }
@@ -159,12 +167,8 @@
 
     .t4 {
         display: flex;
-        padding-bottom: vh;
+        padding-bottom: 1vh;
         height: 250px;
-    }
-
-    .hero-section {
-        padding: 5vh 3vw;
     }
 
     .hero-items-container {
@@ -216,7 +220,154 @@
 
 /* PROJECTS */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1222px) {
+    .project-container{
+        margin: 0;
+    }
+    
+    .bt-left{
+        display: none !important;
+    }
+
+    .bt-right{
+        display: none !important;
+    }
+
+    .projects-section{
+        min-width: 0;
+        gap: 15px;
+    }
+
+    .project-title-description-container {
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+    }
+
+    .project-title-container{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-size: 3vh;
+        height: auto;
+        font-weight: 700;
+        margin: 0;
+        width: 100%;
+        border: var(--dark) 1px solid;
+        border-radius: 10px;
+        padding: 10px 15px;
+        margin: 0;
+    }
+    .project-description-container{
+        display: flex;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-size: 2.2vh;
+        width: 100%;
+        font-weight: 500;
+        font-style: italic;
+        font-family: 'Montserrat', sans-serif;
+        border: var(--dark) 1px solid;
+        border-radius: 10px;
+        padding: 10px 15px;
+        margin: 0;
+    }
+
+    .project-description-container p{
+        margin: 0;
+    }
+
+    .project-name{
+        font-size: 2.5vh;
+    }
+
+    .project-tags{
+        font-size: 2.2vh;
+    }
+
+    .project-image {
+        display: block;
+        scroll-snap-align: center;
+        max-width: 300px;
+        max-height: auto;
+    }
+
+    .project-video {
+        display: flex;
+        flex-direction: column;
+        scroll-snap-align: center;
+        flex-shrink: 0;
+        max-width: 300px;
+        max-height: 168px;
+    }
+
+    .try-game-container{
+        display: flex;
+        flex-direction: row;
+        padding-top: 10px;
+    }
+    
+    .try-game-text{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        justify-content: center;
+        font-size: 1.7vh;
+        font-weight: 200;
+        color: var(--light-d);
+        margin: 0;
+    }
 
 
+    .project-description{
+        font-size: 2vh;
+        font-weight: 200;
+        color: var(--light);
+        margin: 0;
+        padding-top: 0px;
+    }
+
+    .project-description-wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 0;
+        padding: 5px 15px;
+        background-color: var(--dark);
+    }
+
+    .project-bar img{
+        height: 10px;
+        width: 10px;
+    }
+
+    .project-bar{
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 10px;
+        gap: 5px;
+    }
+    
+
+    .media-frame {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: auto;
+        padding-top: 10px;
+        background-color: var(--dark-d);
+        overflow: hidden; /* Keeps content inside */
+        border-left: var(--dark-d) 7px solid;
+        border-right: var(--dark-d) 7px solid;
+    
+    }
+
+    
 }

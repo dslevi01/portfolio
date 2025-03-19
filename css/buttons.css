@@ -10,7 +10,7 @@
 
 
 /* Base Button Styles */
-.project-bt, .nature-bt, .trips-bt, .heart-bt, .tile-bt {
+.project-bt, .sketch-bt, .nature-bt, .trips-bt, .heart-bt, .tile-bt {
     background: none;
     border: none;
     cursor: pointer;
@@ -26,12 +26,45 @@
     pointer-events: none;
 }
 
+@keyframes popEffect {
+    0% {
+        transform: scale(.9);
+    }
+    30% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.0);
+    }
+}
+
+.plus-bt:active,
+.minus-bt:active {
+    animation: popEffect 1s steps(3, end) forwards;
+}
+
+.project-bt:active{
+    animation: popEffect 1s steps(3, end) forwards;
+
+}
+
+.plus-bt:hover img,  
+.plus-bt:active img {  
+    content: url("../assets/plus-hover.svg");  
+}
+
+.minus-bt:hover img,  
+.minus-bt:active img {  
+    content: url("../assets/minus-hover.svg");  
+}
+
+
 .project-dropdown.open + .project-bt .ghost-bt img {
     display: none; /* Hides the ghost icon when dropdown is open */
 }
 
 /* Button Icons */
-.project-bt img, .nature-bt img, .trips-bt img, .heart-bt img, .tile-bt img {
+.project-bt img, .sketch-bt img, .nature-bt img, .trips-bt img, .heart-bt img, .tile-bt img {
     width: 46.5px;
     height: 46.5px;
 }
@@ -82,6 +115,12 @@
 
 .project-bt.itch:hover img { 
     content: url("../assets/itch-hover.svg"); 
+}
+.project-bt.plus-bt:hover img { 
+    content: url("../assets/plus-hover.svg"); 
+}
+.project-bt.minus-bt:hover img { 
+    content: url("../assets/minus-hover.svg"); 
 }
 
 .project-bt.nature-bt.left-arrow:hover img { 
@@ -153,3 +192,5 @@
     background-color: var(--green-d);
     color: var(--green);
 }
+
+
