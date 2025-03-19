@@ -51,7 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
         let isAnimating = false;
 
         // Keep original content width, just set container width
-        const totalWidth = Array.from(mediaItems).reduce((sum, item) => sum + item.offsetWidth, 0);
+        const totalWidth = Array.from(mediaItems).reduce((sum, item) => {
+            // Get actual rendered width including gap
+            const style = window.getComputedStyle(item);
+            const marginRight = parseInt(style.marginRight) || 0;
+            return sum + item.offsetWidth + marginRight;
+        }, 0);
+
         container.style.width = `${totalWidth}px`;
 
         function updateCounters() {

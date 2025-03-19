@@ -131,13 +131,17 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    gap: 15px;
     padding-top: 15px;
     padding-bottom: 15px;
     background-color: var(--dark-d);
-    border-right: var(--dark-d) 15px solid;
-    border-left: var(--dark-d) 15px solid;
     overflow: hidden;
+}
+
+.project-video {
+    border-radius: 10px;
+    width: 853px; /* Fixed width */
+    height: 480px; /* Fixed height */
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 .media-container {
@@ -148,10 +152,8 @@
     gap: 15px;
     width: fit-content;
     height: 100%;
-}
-
-.project-video {
-    border-radius: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .project-bar{
