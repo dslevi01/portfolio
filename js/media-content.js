@@ -1,123 +1,102 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Add event listeners to all dropdown buttons
-    const dropdownButtons = document.querySelectorAll('.project-dropdown-bt');
-    
-    dropdownButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const dropdown = button.closest('.project-frame').querySelector('.project-dropdown');
-            
-            // When dropdown is closed (doesn't have 'open' class)
-            if (!dropdown.classList.contains('open')) {
-                // Find all YouTube iframes in this dropdown
-                const videos = dropdown.querySelectorAll('iframe[src*="youtube.com"]');
-                
-                // Pause each video by posting a message
-                videos.forEach(video => {
-                    video.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    document.querySelectorAll('.game-project').forEach((project) => {
+        const container = project.querySelector('.media-container');
+        const mediaItems = Array.from(container.children);
+        const counterContainer = project.querySelector('.media-counter');
+        const descriptionContainer = project.querySelector('.project-description');
+        const counters = counterContainer.querySelectorAll('.counter');
+        const prevButton = project.querySelector('.bt-left');
+        const nextButton = project.querySelector('.bt-right');
+        const dropdown = project.querySelector('.project-dropdown'); // Find the dropdown inside this project
+
+        let currentIndex = 0;
+        let ytPlayers = [];
+
+        function updateUI() {
+            // Update counter visuals
+            counters.forEach((counter, index) => {
+                counter.src = index === currentIndex 
+                    ? 'assets/counter-fill.svg' 
+                    : 'assets/counter-nofill.svg';
+            });
+
+            // Update descriptions
+            if (descriptionContainer) {
+                descriptionContainer.querySelectorAll('p').forEach((desc, index) => {
+                    desc.style.display = index === currentIndex ? 'block' : 'none';
                 });
             }
+        }
+
+        function scrollToMedia(index) {
+            if (index < 0 || index >= mediaItems.length) return; // Prevent out-of-bounds
+            const target = mediaItems[index];
+
+            if (target) {
+                container.scrollTo({ left: target.offsetLeft - container.offsetLeft, behavior: 'smooth' });
+                currentIndex = index;
+                updateUI();
+            }
+        }
+
+        function findVisibleMedia() {
+            let closestIndex = 0;
+            let minOffset = Infinity;
+
+            mediaItems.forEach((item, index) => {
+                const offset = Math.abs(item.getBoundingClientRect().left - container.getBoundingClientRect().left);
+                if (offset < minOffset) {
+                    minOffset = offset;
+                    closestIndex = index;
+                }
+            });
+
+            if (closestIndex !== currentIndex) {
+                currentIndex = closestIndex;
+                updateUI();
+            }
+        }
+
+        // Handle scrolling detection
+        container.addEventListener('scroll', () => {
+            clearTimeout(container.scrollTimeout);
+            container.scrollTimeout = setTimeout(findVisibleMedia, 100);
         });
-    });
 
-    const mediaContainers = document.querySelectorAll('.media-container');
+        // Left/Right button navigation
+        prevButton.addEventListener('click', () => scrollToMedia(currentIndex - 1));
+        nextButton.addEventListener('click', () => scrollToMedia(currentIndex + 1));
 
-    mediaContainers.forEach(container => {
-        // Set up flex container
-        container.style.display = 'flex';
-        container.style.transition = 'transform 0.5s ease';
-
-        const mediaItems = container.children;
-        const itemCount = mediaItems.length;
-        const dropdown = container.closest('.project-dropdown');
-        const counterContainer = dropdown.querySelector('.media-counter');
-        const descriptionContainer = dropdown.querySelector('.project-description');
-        
-        // Adjust number of counters to match content
-        while (counterContainer.children.length > itemCount) {
-            counterContainer.removeChild(counterContainer.lastChild);
-        }
-        while (counterContainer.children.length < itemCount) {
-            const newCounter = document.createElement('img');
-            newCounter.className = 'counter';
-            newCounter.src = 'assets/counter-nofill.svg';
-            counterContainer.appendChild(newCounter);
-        }
-
-        const counters = counterContainer.querySelectorAll('.counter');
-        const prevButton = container.closest('.project').querySelector('.bt-left');
-        const nextButton = container.closest('.project').querySelector('.bt-right');
-        
-        let currentIndex = 0;
-        let isAnimating = false;
-
-        // Keep original content width, just set container width
-        const totalWidth = Array.from(mediaItems).reduce((sum, item) => {
-            // Get actual rendered width including gap
-            const style = window.getComputedStyle(item);
-            const marginRight = parseInt(style.marginRight) || 0;
-            return sum + item.offsetWidth + marginRight;
-        }, 0);
-
-        container.style.width = `${totalWidth}px`;
-
-        function updateCounters() {
-            counters.forEach((counter, index) => {
-                counter.src = index === currentIndex ? 
-                    'assets/counter-fill.svg' : 
-                    'assets/counter-nofill.svg';
+        // Load YouTube Player API and create player instances
+        function onYouTubeIframeAPIReady() {
+            const iframes = container.querySelectorAll('iframe');
+            iframes.forEach((iframe, index) => {
+                const player = new YT.Player(iframe, {
+                    events: {
+                        'onReady': () => ytPlayers[index] = player
+                    }
+                });
             });
         }
 
-        function updateDescription() {
-            if (descriptionContainer) {
-                // Hide all descriptions first
-                descriptionContainer.querySelectorAll('p')
-                    .forEach(desc => desc.style.display = 'none');
-                
-                // Show the current description
-                const currentDesc = descriptionContainer.querySelector(
-                    `p:nth-child(${currentIndex + 1})`
-                );
-                if (currentDesc) {
-                    currentDesc.style.display = 'block';
-                }
+        // Watch for dropdown state changes to pause YouTube videos when closed
+        const observer = new MutationObserver(() => {
+            if (!dropdown.classList.contains('open')) {
+                ytPlayers.forEach(player => player?.pauseVideo());
             }
-        }
-
-        function navigate(direction) {
-            if (isAnimating) return;
-            isAnimating = true;
-
-            currentIndex = (currentIndex + direction + itemCount) % itemCount;
-            const offset = Array.from(mediaItems)
-                .slice(0, currentIndex)
-                .reduce((sum, item) => sum + item.offsetWidth, 0);
-
-            container.style.transform = `translateX(-${offset}px)`;
-            updateCounters();
-            updateDescription();
-
-            setTimeout(() => {
-                isAnimating = false;
-            }, 500);
-        }
-
-        // Add click handlers
-        if (prevButton) {
-            prevButton.addEventListener('click', () => navigate(-1));
-        }
-        if (nextButton) {
-            nextButton.addEventListener('click', () => navigate(1));
-        }
-
-        // Initialize position, counters and description
-        container.style.transform = 'translateX(0)';
-        updateCounters();
-        updateDescription();
-
-        // Handle transition end
-        container.addEventListener('transitionend', () => {
-            isAnimating = false;
         });
+
+        observer.observe(dropdown, { attributes: true, attributeFilter: ['class'] });
+
+        // Load YouTube API script dynamically (only once)
+        if (document.querySelector('iframe[src*="youtube.com"]') && !window.YT) {
+            const script = document.createElement('script');
+            script.src = "https://www.youtube.com/iframe_api";
+            document.head.appendChild(script);
+            window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+        }
+
+        // Initialize UI on load
+        updateUI();
     });
 });

@@ -216,12 +216,3 @@
 
 /* PROJECTS */
 
-
-
-@media screen and (max-width: 768px) {
-
-    .bt-left .ghost-bt,
-    .bt-right .ghost-bt {
-        display: none !important;
-    }
-}

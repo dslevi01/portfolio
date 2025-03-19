@@ -1,3 +1,15 @@
+.project-bt img, 
+.nature-bt img, 
+.trips-bt img, 
+.heart-bt img, 
+.tile-bt img {
+    user-drag: none; /* Prevents dragging on WebKit browsers */
+    -webkit-user-drag: none; /* Explicitly for Safari */
+    pointer-events: none; /* Prevents unintended interactions */
+}
+
+
+
 /* Base Button Styles */
 .project-bt, .nature-bt, .trips-bt, .heart-bt, .tile-bt {
     background: none;
@@ -13,7 +25,10 @@
     background: none;
     border: none;
     pointer-events: none;
-    content:url("../assets/ghost.svg");
+}
+
+.project-dropdown.open + .project-bt .ghost-bt img {
+    display: none; /* Hides the ghost icon when dropdown is open */
 }
 
 /* Button Icons */
@@ -101,9 +116,9 @@
 
 /* Standard Button Styling */
 .bt {
-    border: var(--dark) 1px solid;
     padding: 0.75rem 1.5rem;
     border-radius: 100px;
+    border: var(--dark) 1px solid;
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     font-weight: 500;
