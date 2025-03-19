@@ -7,20 +7,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const counters = counterContainer.querySelectorAll('.counter');
         const prevButton = project.querySelector('.bt-left');
         const nextButton = project.querySelector('.bt-right');
-        const dropdown = project.querySelector('.project-dropdown'); // Find the dropdown inside this project
+        const dropdown = project.querySelector('.project-dropdown');
 
         let currentIndex = 0;
         let ytPlayers = [];
 
         function updateUI() {
-            // Update counter visuals
             counters.forEach((counter, index) => {
                 counter.src = index === currentIndex 
                     ? 'assets/counter-fill.svg' 
                     : 'assets/counter-nofill.svg';
             });
 
-            // Update descriptions
             if (descriptionContainer) {
                 descriptionContainer.querySelectorAll('p').forEach((desc, index) => {
                     desc.style.display = index === currentIndex ? 'block' : 'none';
@@ -29,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function scrollToMedia(index) {
-            if (index < 0 || index >= mediaItems.length) return; // Prevent out-of-bounds
+            if (index < 0 || index >= mediaItems.length) return;
             const target = mediaItems[index];
 
             if (target) {
@@ -57,17 +55,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Handle scrolling detection
-        container.addEventListener('scroll', () => {
+        function enableScrollDetection(enable) {
+            if (enable) {
+                container.addEventListener('scroll', handleScroll);
+            } else {
+                container.removeEventListener('scroll', handleScroll);
+            }
+        }
+
+        function handleScroll() {
             clearTimeout(container.scrollTimeout);
             container.scrollTimeout = setTimeout(findVisibleMedia, 100);
-        });
+        }
 
-        // Left/Right button navigation
+        function detectScreenSize() {
+            const isMobile = window.innerWidth <= 768; // Adjust breakpoint if needed
+            container.style.overflowX = isMobile ? 'auto' : 'hidden';
+            enableScrollDetection(isMobile);
+        }
+
         prevButton.addEventListener('click', () => scrollToMedia(currentIndex - 1));
         nextButton.addEventListener('click', () => scrollToMedia(currentIndex + 1));
 
-        // Load YouTube Player API and create player instances
         function onYouTubeIframeAPIReady() {
             const iframes = container.querySelectorAll('iframe');
             iframes.forEach((iframe, index) => {
@@ -79,16 +88,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Watch for dropdown state changes to pause YouTube videos when closed
+        function pauseAllVideos() {
+            ytPlayers.forEach(player => player?.pauseVideo());
+        }
+
         const observer = new MutationObserver(() => {
-            if (!dropdown.classList.contains('open')) {
-                ytPlayers.forEach(player => player?.pauseVideo());
-            }
+            if (!dropdown.classList.contains('open')) pauseAllVideos();
         });
 
         observer.observe(dropdown, { attributes: true, attributeFilter: ['class'] });
 
-        // Load YouTube API script dynamically (only once)
         if (document.querySelector('iframe[src*="youtube.com"]') && !window.YT) {
             const script = document.createElement('script');
             script.src = "https://www.youtube.com/iframe_api";
@@ -96,7 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
             window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
         }
 
-        // Initialize UI on load
+        window.addEventListener('resize', detectScreenSize);
+        detectScreenSize();
         updateUI();
     });
 });

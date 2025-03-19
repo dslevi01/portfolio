@@ -64,7 +64,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    gap: 10px;
+    gap: 15px;
 }
 
 .project-frame{
@@ -125,16 +125,23 @@
     width: 100%;
 }
 
+.bt-left img, .bt-right img {
+    transition: opacity 0.3s ease-in-out;
+}
+
 .media-frame {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    height: auto;
     padding-top: 15px;
-    padding-bottom: 15px;
     background-color: var(--dark-d);
     overflow: hidden; /* Keeps content inside */
+    border-left: var(--dark-d) 15px solid;
+    border-right: var(--dark-d) 15px solid;
+
 }
 
 .media-container {
@@ -144,12 +151,10 @@
     justify-content: flex-start;
     gap: 15px;
     width: 100%;
-    height: 100%;
+    height: auto;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    padding-left: 30px;
-    padding-right: 30px;
+    scroll-behavior: auto;
     scrollbar-width: none; /* Hide scrollbar */
 }
 
@@ -157,12 +162,19 @@
     display: none; /* Hide scrollbar for WebKit */
 }
 
-.project-video,
-.media-container img {
+.project-video {
+    display: flex;
+    flex-direction: column;
     scroll-snap-align: center;
     flex-shrink: 0;
-    width: 853px; /* Match video width */
-    height: 480px;
+    width: 100%;
+    max-height: 500px;
+}
+
+.project-image {
+    display: block;
+    scroll-snap-align: center;
+    max-height: 500px;
 }
 
 
@@ -173,6 +185,8 @@
     justify-content: center;
     width: 100%;
     gap: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     background-color: var(--light-d);
     background-color: var(--dark-d);
 }
@@ -183,7 +197,7 @@
     align-items: center;
     justify-content: center;
     gap: 15px;
-
+    padding-top: 0;
 }
 
 .try-game-text{
@@ -202,7 +216,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     margin: 0;
+    padding: 10px 15px;
     background-color: var(--dark);
 }
 
@@ -211,7 +227,6 @@
     font-weight: 200;
     color: var(--light);
     margin: 0;
-    padding: 10px 15px;
 }
 
 /* GAME DESIGN */
@@ -222,3 +237,7 @@
 }
 
 
+.game-description-container {
+    background-color: var(--red);
+    color: var(--light);
+}

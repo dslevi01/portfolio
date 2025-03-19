@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com https://www.gstatic.com https://www.googleapis.com; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com;">
+    <meta http-equiv="Content-Security-Policy" content="frame-src 'self' https://itch.io https://v6p9d9t4.ssl.hwcdn.net;">
+    
     <title>dslevi.portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -103,11 +106,12 @@
                 </div>
                 <div class="project-description-container game-description-container">
                     <p>
-                        I enjoy making games. Usually I work with my good friend who introduced me to the fantastic world of game
+                        I enjoy making games. I usually work with my good friend, who introduced me to the fantastic world of game
                         development in 2022.
                     </p>
                 </div>
             </div>
+
             <div class="project-container">
 
                 <div class="game-project project">
@@ -130,7 +134,7 @@
                                                 <iframe class="project-video"
                                                 width="853" 
                                                 height="480"
-                                                src="https://www.youtube.com/embed/pKL4NPEfeQ4?volume=10&enablejsapi=1"
+                                                src="https://www.youtube.com/embed/pKL4NPEfeQ4?volume=5&enablejsapi=1"
                                                 title="YouTube video player"
                                                 frameborder="0"
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -141,7 +145,7 @@
                                                 <iframe class="project-video"
                                                 width="853" 
                                                 height="480"
-                                                src="https://www.youtube.com/embed/MZY-joP4BOI?volume=10&enablejsapi=1"
+                                                src="https://www.youtube.com/embed/MZY-joP4BOI?volume=5&enablejsapi=1"
                                                 title="YouTube video player"
                                                 frameborder="0"
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -149,7 +153,11 @@
                                                 referrerpolicy="strict-origin-when-cross-origin">
                                                 </iframe>
 
-                                                <img src="" aria-label="">
+                                                <img class="project-image" src="assets/enemies.jpg">
+
+                                                <img class="project-image" src="assets/maps.png">
+
+                                                <img class="project-image" src="assets/chart.png">
 
 
                                             </div>
@@ -169,11 +177,15 @@
                                     <div class="project-description-wrapper project-bar">
                                             <div class="project-description">
 
-                                                <p> this is first vid desc</p>
+                                                <p>A medieval fantasy style pixel art background, with a full day-night cycle visible through the window. Oh, and interactive elements for fun!</p>
 
-                                                <p> this is second vid desc</p>
+                                                <p>The trailer video for the game. Fast-paced, simple controls, exponential progress and insane ability upgrades!</p>
 
-                                                <p> this is third img desc</p>
+                                                <p>A few of the enemies in the game. They have different behaviours, special spells which add to the learning curve. Watch out before they get to you!</p>
+
+                                                <p>The maps are infinite, chunks being generated and attach seamlessly to one another. The goal is to survive for a definite time, then a gate opens up unlocking the next map!</p>
+
+                                                <p>Each unique ability is connected to element. Combine two of your elements, or upgrade to a more powerful version of one of them!</p>
 
                                             </div>
                                     </div>
@@ -182,13 +194,14 @@
                     <button class="project-bt bt-right ghost-bt"><img src="assets/ghost.svg" aria-label="next"/></button>
                 </div>
 
+
                 <div class="game-project project">
                     <button class="project-bt bt-left ghost-bt"><img src="assets/ghost.svg" aria-label="previous"/></button>
                         <div class="project-frame">
                             <div class="project-top-bar">
                                 <div class="top-bar-wrapper">
-                                    <div class="project-name">Essences Of Power</div>
-                                    <p class="project-tags">[Character] [Environment] [Particle system] [Animations] [UI] [Pixel Art]</p>
+                                    <div class="project-name">Shapes & Colors</div>
+                                    <p class="project-tags">[Game Logic] [Card Game] [Layout] [Card Illustration]</p>
                                     <div class="dropdown-bt-container">  
                                     </div>
                                     
@@ -199,29 +212,12 @@
                                     <div class="media-frame">
                                             <div class="media-container">
 
-                                                <iframe class="project-video"
-                                                width="853" 
-                                                height="480"
-                                                src="https://www.youtube.com/embed/pKL4NPEfeQ4?volume=10&enablejsapi=1"
-                                                title="YouTube video player"
-                                                frameborder="0"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                allowfullscreen
-                                                referrerpolicy="strict-origin-when-cross-origin">
-                                                </iframe>
 
-                                                <iframe class="project-video"
-                                                width="853" 
-                                                height="480"
-                                                src="https://www.youtube.com/embed/MZY-joP4BOI?volume=10&enablejsapi=1"
-                                                title="YouTube video player"
-                                                frameborder="0"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                allowfullscreen
-                                                referrerpolicy="strict-origin-when-cross-origin">
-                                                </iframe>
+                                                <img class="project-image" src="assets/enemies.jpg">
 
-                                                <img src="" aria-label="">
+                                                <img class="project-image" src="assets/maps.png">
+
+                                                <img class="project-image" src="assets/chart.png">
 
 
                                             </div>
@@ -231,21 +227,17 @@
                                             <img class="counter" src="assets/counter-nofill.svg" />
                                             <img class="counter" src="assets/counter-nofill.svg" />
                                             <img class="counter" src="assets/counter-nofill.svg" />
-                                            <img class="counter" src="assets/counter-nofill.svg" />
-                                            <img class="counter" src="assets/counter-nofill.svg" />
+
                                     </div>
-                                    <div class="try-game-container project-bar">
-                                            <p class="try-game-text">Do you want to try the game? Join our Discord server!</p>
-                                            <button class="project-bt discord"><img class="discord" src="assets/discord.svg" aria-label="discord"/></button>
-                                    </div>
+  
                                     <div class="project-description-wrapper project-bar">
                                             <div class="project-description">
 
-                                                <p> this is first vid desc</p>
+                                                <p>A fast-paced card game, set in an universe where Shapes and Colors are living beings. Shapes lead battles against each other, viciously fighting, all with same goal to become the ultimate shape! They recruit colors as their troops in the battle.</p>
 
-                                                <p> this is second vid desc</p>
+                                                <p>The first intention was to make the game a set of collectable cards, so players can build their decks and duel against other players. This has changed into a set amount of cards in a deck, that would be available for purchase as a full game by itself.</p>
 
-                                                <p> this is third img desc</p>
+                                                <p>There are 6 different card types: Shape, Primary Color, Secondary Color, Action, Instant Action, Equipment. The strongly stylized, though subtle ornaments represent different materials such as diamond, gold, silver, ruby and amber.</p>
 
                                             </div>
                                     </div>
@@ -254,13 +246,14 @@
                     <button class="project-bt bt-right ghost-bt"><img src="assets/ghost.svg" aria-label="next"/></button>
                 </div>
 
+
                 <div class="game-project project">
                     <button class="project-bt bt-left ghost-bt"><img src="assets/ghost.svg" aria-label="previous"/></button>
                         <div class="project-frame">
                             <div class="project-top-bar">
                                 <div class="top-bar-wrapper">
-                                    <div class="project-name">Essences Of Power</div>
-                                    <p class="project-tags">[Character] [Environment] [Particle system] [Animations] [UI] [Pixel Art]</p>
+                                    <div class="project-name">Last Minutes Of Moel Jiller</div>
+                                    <p class="project-tags">[Particle system] [Animations] [UI] [Pixel Art] [Web Client]</p>
                                     <div class="dropdown-bt-container">  
                                     </div>
                                     
@@ -271,29 +264,13 @@
                                     <div class="media-frame">
                                             <div class="media-container">
 
-                                                <iframe class="project-video"
-                                                width="853" 
-                                                height="480"
-                                                src="https://www.youtube.com/embed/pKL4NPEfeQ4?volume=10&enablejsapi=1"
-                                                title="YouTube video player"
-                                                frameborder="0"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                allowfullscreen
-                                                referrerpolicy="strict-origin-when-cross-origin">
-                                                </iframe>
+                                                <iframe frameborder="0" src="https://itch.io/embed-upload/10564245?color=065f00" class="project-video"><a href="https://jimdayler.itch.io/the-last-minutes-of-moel-jiller">Play The Last Minutes of Moel Jiller on itch.io</a></iframe>
 
-                                                <iframe class="project-video"
-                                                width="853" 
-                                                height="480"
-                                                src="https://www.youtube.com/embed/MZY-joP4BOI?volume=10&enablejsapi=1"
-                                                title="YouTube video player"
-                                                frameborder="0"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                allowfullscreen
-                                                referrerpolicy="strict-origin-when-cross-origin">
-                                                </iframe>
+                                                <img class="project-image" src="assets/enemies.jpg">
 
-                                                <img src="" aria-label="">
+                                                <img class="project-image" src="assets/maps.png">
+
+                                                <img class="project-image" src="assets/chart.png">
 
 
                                             </div>
@@ -307,17 +284,21 @@
                                             <img class="counter" src="assets/counter-nofill.svg" />
                                     </div>
                                     <div class="try-game-container project-bar">
-                                            <p class="try-game-text">Do you want to try the game? Join our Discord server!</p>
-                                            <button class="project-bt discord"><img class="discord" src="assets/discord.svg" aria-label="discord"/></button>
+                                            <p class="try-game-text">The game is live on itch.io, free to play in the browser! (Desktop only)</p>
+                                            <button class="project-bt itch"><img class="itch" src="assets/itch.svg" aria-label="itch.io"/></button>
                                     </div>
                                     <div class="project-description-wrapper project-bar">
                                             <div class="project-description">
 
-                                                <p> this is first vid desc</p>
+                                                <p>A medieval fantasy style pixel art background, with a full day-night cycle visible through the window. Oh, and interactive elements for fun!</p>
 
-                                                <p> this is second vid desc</p>
+                                                <p>The trailer video for the game. Fast paced, simple controls, exponential progress and insane ability upgrades!</p>
 
-                                                <p> this is third img desc</p>
+                                                <p>A few of the enemies in the game. They have different behaviours, special spells which add to the learning curve. Watch out before they get to you!</p>
+
+                                                <p>The maps are infinite, chunks being generated and attach seamlessly to one another. The goal is to survive for a definite time, then a gate opens up unlocking the next map!</p>
+
+                                                <p>Each unique ability is connected to element. Combine two of your elements, or upgrade to a more powerful version of one of them!</p>
 
                                             </div>
                                     </div>
@@ -328,104 +309,7 @@
                 
             </div>
 
-            </div>
-            <div class="project-title-description-container">
-            <div class="project-title graphic-title"><div class="project-title-text graphic-title-text">Graphic Design</div></div>
-            <div class="project-description-container graphic-description-container">
-                <p class="project-description-text graphic-description">
-                    I like to combine simple aesthetics with complicated systems. It fascinates me how digital and analog worlds flow back and forth.
-                </p>
-            </div>
-            </div>
-            <div class="graphic-design project-type-container">
-            <div class="gallery project">
-                <button class="project-bt"><img class="left-arrow" src="assets/arrow.svg" aria-label="previous"/></button>
-                    <div class="project-frame">
-                        <div class="project-top-bar project-bar">
-                            <di class="project-name-and-tags">
-                                <div class="project-name">Essences Of Power</div>
-                                <p class="project-tags">[Character] [Environment] [Particle system] [Animations] [UI] [Pixel Art]</p>
-                                <button class="project-bt dropdown-bt"><img class="top-arrow" src="assets/arrow.svg" aria-label="open"/></button>
-                                <div class="dropdown-content gallery-dropdown">
-                                    <div class="media-frame">
-                                        <div class="media-container">
-                                            <video src=""></video>
-                                            <video src=""></video>
-                                            <img src="" aria-label="">
-                                        </div>
-                                    </div>
-                                    <div class="media-counter project-bar">
-                                        <img class="counter" src="counter-nofill.svg" />
-                                        <img class="counter" src="counter-nofill.svg" />
-                                        <img class="counter" src="counter-nofill.svg" />
-                                        <img class="counter" src="counter-nofill.svg" />
-                                        <img class="counter" src="counter-nofill.svg" />
-                                    </div>
-                                    <div class="try-game-container project-bar">
-                                        <p class="text-wrapper">Do you want to try the game? Join our Discord server!</p>
-                                        <button class="project-bt"><img class="discord-bt" src="assets/discord.svg" aria-label="discord"/></button>
-                                    </div>
-                                    <div class="project-bottom-bar project-bar">
-                                        <p class="project-description">
-                                            Lorem Ipsum 
-                                        </p>
-                                    </div>
-                                </div>
-                    </div>
-                <button class="project-bt"><img class="right-arrow" src="assets/arrow.svg" aria-label="next"/></button>
-            </div>
-
-            </div>
-            </div>
-            <div class="project-title-description-container">
-            <div class="project-title sketches-title"><div class="project-title-text sketches-title-text">Sketches</div></div>
-            <div class="project-description-container sketches-description-container">
-                <p class="project-description-text sketches-description">
-                    Faces, objects, things. Capturing a moment in time feels like a privilege in this rapidly moving, ever-changing world we live in. 
-                </p>
-            </div>
-        </div>
-            <div class="sketches-design project-type-container">
-            <div class="sketches project">
-                <button class="project-bt"><img class="left-arrow" src="assets/arrow.svg" aria-label="previous"/></button>
-                    <div class="project-frame">
-                        <div class="project-top-bar project-bar">
-                            <di class="project-name-and-tags">
-                                <div class="project-name">Essences Of Power</div>
-                                <p class="project-tags">[Character] [Environment] [Particle system] [Animations] [UI] [Pixel Art]</p>
-                                <button class="project-bt dropdown-bt"><img class="top-arrow" src="assets/arrow.svg" aria-label="open"/></button>
-                                <div class="dropdown-content sketches-dropdown">
-                                    <div class="media-frame">
-                                        <div class="media-container">
-                                            <video src=""></video>
-                                            <video src=""></video>
-                                            <img src="" aria-label="">
-                                        </div>
-                                    </div>
-                                    <div class="media-counter project-bar">
-                                        <img class="counter" src="counter-nofill.svg" />
-                                        <img class="counter" src="counter-nofill.svg" />
-                                        <img class="counter" src="counter-nofill.svg" />
-                                        <img class="counter" src="counter-nofill.svg" />
-                                        <img class="counter" src="counter-nofill.svg" />
-                                    </div>
-                                    <div class="try-game-container project-bar">
-                                        <p class="text-wrapper">Do you want to try the game? Join our Discord server!</p>
-                                        <button class="project-bt"><img class="discord-bt" src="assets/discord.svg" aria-label="discord"/></button>
-                                    </div>
-                                    <div class="project-bottom-bar project-bar">
-                                        <p class="project-description">
-                                            Lorem Ipsum 
-                                        </p>
-                                    </div>
-                                </div>
-                    </div>
-                <button class="project-bt"><img class="right-arrow" src="assets/arrow.svg" aria-label="next"/></button>
-            </div>
-
-            </div>
-        </div>
-    </div>
+    </div>            
     <div class="aboutme-section section" id="aboutme">
         <div class="title-container"><div class="title-text">ABOUT ME</div></div>
         <div class="aboutme-description-image-container">
@@ -721,6 +605,8 @@
     <script src="js/projects.js"></script>
     <script src="js/tooltip.js"></script>
     <script src="js/media-content.js"></script>
+    <script src="js/pause-yt.js"></script>
+
 
 
 </body>

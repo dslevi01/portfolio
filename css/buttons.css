@@ -5,7 +5,6 @@
 .tile-bt img {
     user-drag: none; /* Prevents dragging on WebKit browsers */
     -webkit-user-drag: none; /* Explicitly for Safari */
-    pointer-events: none; /* Prevents unintended interactions */
 }
 
 
@@ -80,6 +79,11 @@
 .project-bt.discord:hover img { 
     content: url("../assets/discord-hover.svg"); 
 }
+
+.project-bt.itch:hover img { 
+    content: url("../assets/itch-hover.svg"); 
+}
+
 .project-bt.nature-bt.left-arrow:hover img { 
     content: url("../assets/arrow-hover.svg"); 
     transform: rotate(-90deg); 
