@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://itch.io https://v6p9d9t4.ssl.hwcdn.net https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com https://www.gstatic.com https://www.googleapis.com; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com;">    
+    <title>dslevi.portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/globals.css">
+    <link rel="stylesheet" href="css/styleguide.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/1-header.css">
+    <link rel="stylesheet" href="css/2-hero.css">
+    <link rel="stylesheet" href="css/3-manifesto.css">
+    <link rel="stylesheet" href="css/4-projects.css">
+    <link rel="stylesheet" href="css/5-aboutme.css">
+    <link rel="stylesheet" href="css/6-contact.css">
+    <link rel="stylesheet" href="css/7-footer.css">
+    <link rel="stylesheet" href="css/media-queries.css">
+    <link rel="stylesheet" href="css/tiles.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/buttons.css">
+
+
+</head>
+<body>
+    <header class="header main-section" id="home">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img class="logo-image" src="assets/logo.svg" aria-label="dslevi.">
+            </div>
+            <button id="menu-button" class="menu-button"></button>
+
+            <div id="menu" class="menu-item-container">
+                <a class="menu-item" href="#home"><div class="menu-text">Home</div></a>
+                <a class="menu-item" href="#manifesto"><div class="menu-text">Design</div></a>
+                <a class="menu-item" href="#projects"><div class="menu-text">Projects</div></a>
+                <a class="menu-item" href="#aboutme"><div class="menu-text">About Me</div></a>
+    
+                <div class="contact-menu-item">Contact ▾
+                    
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                            <a href="mailto:your.email@example.com"><img src="assets/email.svg" aria-label="email" class="social-icon"></a>
+                            <a href="https://facebook.com/your.profile"><img src="assets/facebook.svg" aria-label="facebook" class="social-icon"></a>
+                            <a href="https://instagram.com/your.profile"><img src="assets/instagram.svg" aria-label="instagram" class="social-icon"></a>
+                            <a href="https://youtube.com/your.channel"><img src="assets/youtube.svg" aria-label="youtube" class="social-icon"></a>
+                            <a href="https://wa.me/yourphonenumber"><img src="assets/whatsapp.svg" aria-label="whatsapp" class="social-icon"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <div class="hero-section section" id="hero">
+        <div class="hero-triangles">
+            <img src="assets/hero1.svg"  class="hero-triangle t1">
+            <img src="assets/hero2.png"  class="hero-triangle t2">
+            <img src="assets/hero3.svg"  class="hero-triangle t3">
+            <img src="assets/hero4.svg"  class="hero-triangle t4">
+        </div>
+        <div class="hero-items-container">
+            <h1 class="hero-h1">Welcome!</h1>
+            <p class="hero-p">
+              This is Sandor Levente Demjen. Design student from Hungary, currently based in
+              <s class="strike-text">Austira</s> Sweden.
+          </p>
+          <div class="bt-container">
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer"
+              ><button class="bt bt-primary"><div class="bt-text">SEE MY CV</div></button></a
+            >
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer"
+              ><button class="bt bt-secondary"><div class="bt-text">BUTTON</div></button></a
+            >
+          </div>
+        </div>
+
+        </div>
+      </div>
+    <div class="manifesto-section section" id="manifesto">
+      <div class="title-container"><div class="title-text">ABOUT DESIGN</div></div>
+        <div class="manifesto-text">
+            <div class="manifesto-line"><div class="manifesto-small">To me, design is:</div></div>
+            <div class="manifesto-line"><img src="assets/Construction.svg" class="manifesto-big"></div>
+            <div class="manifesto-line"><div class="manifesto-small">Bringing ideas to life.</div></div>
+            <div class="manifesto-line"><img src="assets/Adaptation.svg" class="manifesto-big"></div>
+            <div class="manifesto-line"><div class="manifesto-small">Preserving while changing.</div></div>
+            <div class="manifesto-line"><img src="assets/Challenge.svg" class="manifesto-big"></div>
+            <div class="manifesto-line"><div class="manifesto-small">Problem solving from core to shell.</div></div>
+            <div class="manifesto-line"><img src="assets/Journey.svg" class="manifesto-big"></div>
+            <div class="manifesto-line"><div class="manifesto-small">Finding beauty in the whole and in details.</div></div>
+            <div class="manifesto-line"><img src="assets/Insight.svg" class="manifesto-big"></div>
+            <div class="manifesto-line"><div class="manifesto-small">Carefully observing the past, present and future.</div></div>
+        </div>
+    </div>
+    <div class="projects-section section" id="projects">
+        <div class="title-container"><div class="title-text">PROJECTS</div></div>
+            <div class="project-title-description-container">
+                <div class="project-title-container game-title-container">
+                        Game Design
+                </div>
+                <div class="project-description-container game-description-container">
+                    <p>
+                        I enjoy making games. I usually work with my good friend, who introduced me to the fantastic world of game
+                        development in 2022.
+                    </p>
+                </div>
+            </div>
+            <!--GAMES PROJECT!!!-->
+            <div class="project-container">
+
+                <div class="game-project project">
+                    <button class="project-bt bt-left ghost-bt"><img src="assets/ghost.svg" aria-label="previous"/></button>
+                        <div class="project-frame">
+                            <div class="project-top-bar">
+                                <div class="top-bar-wrapper">
+                                    <div class="project-name">Essences Of Power</div>
+                                    <p class="project-tags">[Character] [Environment] [Particle system] [Animations] [UI] [Pixel Art]</p>
+                                    <div class="dropdown-bt-container">  
+                                    </div>
+                                    
+                                </div>
+                                <button class="project-bt project-dropdown-bt"><img class="top-arrow" src="assets/arrow.svg" aria-label="open"/></button>
+                            </div>
+                             <div class="project-dropdown">
+                                    <div class="media-frame">
+                                            <div class="media-container">
+
+                                                <iframe class="project-video"
+                                                width="853" 
+                                                height="480"
+                                                src="https://www.youtube.com/embed/pKL4NPEfeQ4?volume=5&enablejsapi=1"
+                                                title="YouTube video player"
+                                                frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                allowfullscreen
+                                                referrerpolicy="strict-origin-when-cross-origin">
+                                                </iframe>
+
+                                                <iframe class="project-video"
+                                                width="853" 
+                                                height="480"
+                                                src="https://www.youtube.com/embed/MZY-joP4BOI?volume=5&enablejsapi=1"
+                                                title="YouTube video player"
+                                                frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                allowfullscreen
+                                                referrerpolicy="strict-origin-when-cross-origin">
+                                                </iframe>
+
+                                                <img class="project-image" src="assets/enemies.jpg">
+
+                                                <img class="project-image" src="assets/maps.png">
+
+                                                <img class="project-image" src="assets/chart.png">
+
+
+                                            </div>
+                                    </div>
+                                     <div class="media-counter project-bar">
+
+                                            <img class="counter" src="assets/counter-nofill.svg" />
+                                            <img class="counter" src="assets/counter-nofill.svg" />
+                                            <img class="counter" src="assets/counter-nofill.svg" />
+                                            <img class="counter" src="assets/counter-nofill.svg" />
+                                            <img class="counter" src="assets/counter-nofill.svg" />
+                                    </div>
+                                    <div class="try-game-container project-bar">
+                                            <p class="try-game-text">Do you want to try the game? Join our Discord server!</p>
+                                            <button class="project-bt discord"><img class="discord" src="assets/discord.svg" aria-label="discord"/></button>
+                                    </div>
+                                    <div class="project-description-wrapper project-bar">
+                                            <div class="project-description">
+
+                                                <p>A medieval fantasy style pixel art background, with a full day-night cycle visible through the window. Oh, and interactive elements for fun!</p>
+
+                                                <p>The trailer video for the game. Fast-paced, simple controls, exponential progress and insane ability upgrades!</p>
+
+                                                <p>A few of the enemies in the game. They have different behaviours, special spells which add to the learning curve. Watch out before they get to you!</p>
+
+                                                <p>The maps are infinite, chunks being generated and attach seamlessly to one another. The goal is to survive for a definite time, then a gate opens up unlocking the next map!</p>
+
+                                                <p>Each unique ability is connected to element. Combine two of your elements, or upgrade to a more powerful version of one of them!</p>
+
+                                            </div>
+                                    </div>
+                             </div>
+                        </div>
+                    <button class="project-bt bt-right ghost-bt"><img src="assets/ghost.svg" aria-label="next"/></button>
+                </div>
+
+
+                <div class="game-project project">
+                    <button class="project-bt bt-left ghost-bt"><img src="assets/ghost.svg" aria-label="previous"/></button>
+                        <div class="project-frame">
+                            <div class="project-top-bar">
+                                <div class="top-bar-wrapper">
+                                    <div class="project-name">Shapes & Colors</div>
+                                    <p class="project-tags">[Game Logic] [Card Game] [Layout] [Card Illustration]</p>
+                                    <div class="dropdown-bt-container">  
+                                    </div>
+                                    
+                                </div>
+                                <button class="project-bt project-dropdown-bt"><img class="top-arrow" src="assets/arrow.svg" aria-label="open"/></button>
+                            </div>
+                             <div class="project-dropdown">
+                                    <div class="media-frame">
+                                            <div class="media-container">
+
+                                                <img class="project-image" src="assets/s&c.png">
+
+                                                <img class="project-image" src="assets/.png">
+
+                                                <img class="project-image" src="assets/types.png">
+
+                                            </div>
+                                    </div>
+                                     <div class="media-counter project-bar">
+
+                                            <img class="counter" src="assets/counter-nofill.svg" />
+                                            <img class="counter" src="assets/counter-nofill.svg" />
+                                            <img class="counter" src="assets/counter-nofill.svg" />
+
+                                    </div>
+  
+                                    <div class="project-description-wrapper project-bar">
+                                            <div class="project-description">
+
+                                                <p>A fast-paced card game, set in an universe where Shapes and Colors are living beings. Shapes lead battles against each other, viciously fighting, all with same goal to become the ultimate shape! They recruit colors as their troops in the battle.</p>
+
+                                                <p>The first intention was to make the game a set of collectable cards, so players can build their decks and duel against other players. This has changed into a set amount of cards in a deck, that would be available for purchase as a full game by itself.</p>
+
+                                                <p>There are 6 different card types: Shape, Primary Color, Secondary Color, Action, Instant Action, Equipment. The strongly stylized, though subtle ornaments represent different materials such as diamond, gold, silver, ruby and amber.</p>
+
+                                            </div>
+                                    </div>
+                             </div>
+                        </div>
+                    <button class="project-bt bt-right ghost-bt"><img src="assets/ghost.svg" aria-label="next"/></button>
+                </div>
+
+
+                <div class="game-project project">
+                    <button class="project-bt bt-left ghost-bt"><img src="assets/ghost.svg" aria-label="previous"/></button>
+                        <div class="project-frame">
+                            <div class="project-top-bar">
+                                <div class="top-bar-wrapper">
+                                    <div class="project-name">Last Minutes Of Moel Jiller</div>
+                                    <p class="project-tags">[Particle system] [Animations] [UI] [Pixel Art] [Web Client]</p>
+                                    <div class="dropdown-bt-container">  
+                                    </div>
+                                    
+                                </div>
+                                <button class="project-bt project-dropdown-bt"><img class="top-arrow" src="assets/arrow.svg" aria-label="open"/></button>
+                            </div>
+                             <div class="project-dropdown">
+                                    <div class="media-frame">
+                                            <div class="media-container">
+
+                                                <img class="project-image" src="assets/itchpic.png">
+
+                                                <img class="project-image" src="assets/banner.png">
+
+                                                <img class="project-image" src="assets/ui.jpg">
+
+
+                                            </div>
+                                    </div>
+                                     <div class="media-counter project-bar">
+
+                                            <img class="counter" src="assets/counter-nofill.svg" />
+                                            <img class="counter" src="assets/counter-nofill.svg" />
+                                            <img class="counter" src="assets/counter-nofill.svg" />
+
+                                    </div>
+                                    <div class="try-game-container project-bar">
+                                            <p class="try-game-text">The game is live on itch.io, free to play in the browser! (Desktop only)</p>
+                                            <button class="project-bt itch"><img class="itch" src="assets/itch.svg" aria-label="itch.io"/></button>
+                                    </div>
+                                    <div class="project-description-wrapper project-bar">
+                                            <div class="project-description">
+
+                                                <p>A fun mini-game, created for a game jam. Moel Jiller is the main character, and he’s surrounded by zombies in an apocalyptic setting. The goal is to defend the pile of thrash serving as our last stand, while managing ammunition of several shooting weapons and preventing zombies from capturing parts of the pile.</p>
+
+                                                <p>We had a time limit of 48 hours for creating this game. Our team consisted of two programmers and me. We did not use any stock assets, everything has been done from scratch. Since we wanted music and sound effects in the game, we’ve recorded our own sounds and used Suno Ai to make the game music.</p>
+
+                                                <p>The game has a very simple, intuitive UI design that matches the apocalyptic aspect of the game, while being slightly retro-futuristic. The software I use for pixel art is Aseprite.</p>
+
+                                            </div>
+                                    </div>
+                             </div>
+                        </div>
+                    <button class="project-bt bt-right ghost-bt"><img src="assets/ghost.svg" aria-label="next"/></button>
+                </div>
+                
+            </div>
+
+            <div class="project-title-description-container">
+                <div class="project-title-container design-title-container">
+                        Graphic Design
+                </div>
+                <div class="project-description-container design-description-container">
+                    <p>
+                        I like to combine simple aesthetics with complicated systems. It fascinates me how digital and analog worlds flow back and forth.
+                    </p>
+                </div>
+            </div>
+            <!--DESIGN PROJECT!!!-->
+            <div class="project-container">
+
+                <div class="game-project design-project project">
+                    <button class="project-bt bt-left ghost-bt"><img src="assets/ghost.svg" aria-label="previous"/></button>
+                        <div class="project-frame">
+                            <div class="project-top-bar">
+                                <div class="top-bar-wrapper">
+                                    <div class="project-name">Gallery</div>
+                                    <p class="project-tags">[Digital Art] [Typography] [Layout] [Lino Print] </p>
+                                    <div class="dropdown-bt-container">  
+                                    </div>
+                                    
+                                </div>
+                                <button class="project-bt project-dropdown-bt"><img class="top-arrow" src="assets/arrow.svg" aria-label="open"/></button>
+                            </div>
+                             <div class="project-dropdown">
+                                    <div class="media-frame">
+                                            <div class="media-container">
+
+
+                                                <img class="project-image" src="assets/enemies.jpg">
+
+                                                <img class="project-image" src="assets/maps.png">
+
+                                                <img class="project-image" src="assets/chart.png">
+
+
+                                            </div>
+                                    </div>
+                                     <div class="media-counter project-bar">
+
+                                            <img class="counter" src="assets/counter-nofill.svg" />
+                                            <img class="counter" src="assets/counter-nofill.svg" />
+                                            <img class="counter" src="assets/counter-nofill.svg" />
+                                            <img class="counter" src="assets/counter-nofill.svg" />
+                                            <img class="counter" src="assets/counter-nofill.svg" />
+                                    </div>
+
+                                    <div class="project-description-wrapper project-bar">
+                                            <div class="project-description">
+
+                                                <p>A medieval fantasy style pixel art background, with a full day-night cycle visible through the window. Oh, and interactive elements for fun!</p>
+
+                                                <p>The trailer video for the game. Fast-paced, simple controls, exponential progress and insane ability upgrades!</p>
+
+                                                <p>A few of the enemies in the game. They have different behaviours, special spells which add to the learning curve. Watch out before they get to you!</p>
+
+                                                <p>The maps are infinite, chunks being generated and attach seamlessly to one another. The goal is to survive for a definite time, then a gate opens up unlocking the next map!</p>
+
+                                                <p>Each unique ability is connected to element. Combine two of your elements, or upgrade to a more powerful version of one of them!</p>
+
+                                            </div>
+                                    </div>
+                             </div>
+                        </div>
+                    <button class="project-bt bt-right ghost-bt"><img src="assets/ghost.svg" aria-label="next"/></button>
+                </div>
+                
+            </div>
+
+            <div class="project-title-description-container">
+                <div class="project-title-container sketches-title-container">
+                        Sketches
+                </div>
+                <div class="project-description-container sketches-description-container">
+                    <p>
+                        Capturing a moment in time feels like a privilege in this rapidly moving, ever-changing world we live in. Faces, objects, things.
+                    </p>
+                </div>
+            </div>
+            
+            <!--SKETCHES!!!-->
+            <div class="project-container">
+
+                <div class="sketches-project project">
+                        <div class="project-frame">
+                            <div class="sketches-top-bar">
+
+                                    <div class="dropdown-bt-container sketches-bt-container">  
+                                        <button class="minus-bt sketch-bt"><img src="assets/minus.svg" aria-label="minus"></button>
+                                        <button class="project-bt project-dropdown-bt"><img class="top-arrow" src="assets/arrow.svg" aria-label="open"/></button>
+                                        <button class="plus-bt sketch-bt"><img src="assets/plus.svg" aria-label="plus"></button>
+
+                                    </div>
+
+                            </div>
+                             <div class="project-dropdown">
+
+                                <div class="media-counter project-bar">
+
+                                    <img class="counter" src="assets/counter-nofill.svg" />
+                                    <img class="counter" src="assets/counter-nofill.svg" />
+                                    <img class="counter" src="assets/counter-nofill.svg" />
+                                    <img class="counter" src="assets/counter-nofill.svg" />
+                                    <img class="counter" src="assets/counter-nofill.svg" />
+                                </div>
+
+                                    <div class="media-frame">
+
+                                            <div class="media-container">
+
+                                                <img class="sketches-image" src="assets/enemies.jpg">
+
+
+
+                                            </div>
+                                    </div>
+
+                             </div>
+                        </div>
+                </div>
+                
+            </div>
+
+    </div>                <!--tile-hell!!!-->        
+    <div class="aboutme-section section" id="aboutme">
+        <div class="title-container"><div class="title-text">ABOUT ME</div></div>
+        <div class="aboutme-description-image-container">
+            <div class="aboutme-description-container">
+                <p class="aboutme-description-text">
+                    Hey, I am Levi, 23 years old motivated design student originally from Hungary. I am studying in Växjö, Sweden at Linnaeus University - Design + Change programme.                </p>
+                <p class="aboutme-description-text">
+                    My goal is to use design as a tool for promoting and creating solutions for a sustainable future. The world needs positive influence in this field now more than ever, so make an impact together!                </p>
+            </div>
+            <div class="aboutme-image-container">
+                <img class="aboutme-image" src="assets/mehaha.png" aria-label="me">
+            </div>
+        </div>
+        <div class="about-me-frame tiles-horizontal">
+            <div class="tile size2x2 nofill"></div>
+            <div class="tiles-vertical">
+                <div class="tile size1x1 red"></div>
+                <div class="tile size1x1 green"></div>
+        
+            </div>
+            <div class="tile size1x2 yellow vertical"></div>
+            <div class= "title-text red">SKILLS</div>
+            <div class="title-text title-items red-d ">
+                <img src="assets/AI.svg" aria-label="adobe illustrator">
+                <img src="assets/ID.svg" aria-label="adobe indesign">
+                <img src="assets/PS.svg" aria-label="abode photoshop">
+                <img src="assets/PR.svg" aria-label="adobe premiere">
+                <img src="assets/UNITY.svg" aria-label="unity">
+            </div>
+        </div>
+        <div class="about-me-frame tiles-horizontal">
+            <div class="title-text green">LEARNING</div>
+            <div class="title-text title-items red-d ">
+                <img src="assets/FIGMA.svg" aria-label="figma">
+                <img src="assets/BLENDER.svg" aria-label="blender">
+                <img src="assets/HTML.svg" aria-label="html">
+                <img src="assets/CSS.svg" aria-label="css">
+                <img src="assets/REACT.svg" aria-label="react">
+            </div>
+            <div class="tile size2x2 red"></div>
+        </div>
+        <div class="about-me-frame tiles-vertical">
+            <div class="tiles-horizontal">
+                <div class="title-text yellow">IN MY FREE TIME</div>
+                <div class="tile size2x2 green-d"></div>
+            </div>
+            <div class="about-me-frame tiles-horizontal">
+                <div class="tile size1x2 red vertical"></div>
+                <div class="title-text dark">I ENJOY</div>
+                <div class="tiles-vertical">
+                    <div class="tile size1x1 nofill"></div>
+                    <div class="tile size1x1 green"></div>
+                </div>
+                <div class="tile size2x2 red"></div>
+                <div class="tiles-horizontal">
+                    <div class="tiles-horizontal">
+                        <div class="tile size1x2 dark"></div>
+                        <div class="tile size1x1 yellow"></div>
+                    </div>
+                    <div class="tile size1x3 yellow"></div>
+                </div>
+                <div class="tiles-vertical">
+                    <div class="tiles-horizontal">
+                        <div class="tile size1x1 nofill"></div>
+                        <div class="tile size1x1 yellow"></div>
+                    </div>
+                </div>
+                <div class="tiles-vertical">
+                    <div class="tile size1x3 green vertical"></div>
+                    <div class="tile size1x1 nofill"></div>
+                </div>
+                <div class="tiles-vertical">
+                    <div class="tile size1x1 red-d"></div>
+                    <div class="tile size1x2 yellow-d vertical"></div>
+                    <div class="tile size1x1 yellow"></div>
+                </div>
+            </div>
+        </div>
+        <div class="about-me-frame nature-frame">   
+            <div class="tiles-horizontal">
+                <div class="title-text green">BEING CLOSE TO NATURE</div>
+                <div class="tile size2x2 nofill"></div>
+            </div>
+            <div class="media-frame nature-media-frame">
+                <div class="media-sidebar-container">
+                    <div class="media-bt-container vertical-bt-container">
+                        <button class="project-bt nature-bt"><img class="left-arrow" src="assets/arrow.svg" aria-label="previous"/></button>
+                        <button class="project-bt nature-bt"><img class="right-arrow" src="assets/arrow.svg" aria-label="next"/></button>
+                        <button class="project-bt nature-bt"><img class="play" src="assets/play.svg" aria-label=" "/></button>
+                        <button class="project-bt nature-bt"><img class="sound" src="assets/sound.svg" aria-label=" "/></button>
+                    </div>
+                    <img src="assets/speaker.svg" aria-label=" ">
+                </div>
+                <div class="media-container nature-media-container">
+                    <video src=""></video>
+                    <video src=""></video>
+                    <img src="" aria-label="">
+                </div>
+            </div>
+        </div>
+        <div class="about-me-frame trips-frame">
+            <div class="tiles-horizontal">
+                <div class="tile size1x2 yellow vertical"></div>
+                <div class="tiles-vertical">
+                    <div class="tiles-horizontal">
+                        <div class="tile size1x1 red"></div>
+                        <div class="tile size1x1 green-d"></div>
+                    </div>
+                    <div class="tile size1x2 green"></div>
+                </div>
+                <div class="title-text red">TRIPS WITH MY WIFE</div>
+                <div class="tile size1x2 green-d"></div>
+            </div>
+            <div class="tiles-horizontal">
+                <div class="tiles-vertical">
+                    <div class="tiles-horizontal">
+                        <div class="tiles-vertical">
+                            <div class="tile size2x2 red-d"></div>
+                            <div class="tile size2x2 green"></div>
+                        </div>
+                        <div class="tiles-vertical">
+                            <div class="tile size1x3 yellow vertical"></div>
+                            <div class="tile size1x1 yellow-d"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tiles-vertical">
+                <div class="tile size1x3 red"></div>
+                <div class="tiles-horizontal">
+                    <div class="tile size1x2 green-d"></div>
+                    <div class="tile size1x1 dark"></div>
+                </div>
+                <div class="tile size2x3 yellow"></div>
+                <div class="tiles-horizontal">
+                    <div class="tile size1x1 green"></div>
+                    <div class="tile size1x2 nofill"></div>
+                </div>
+            </div>
+            <div class="media-frame trips-media-frame">
+                <div class="media-container trips-media-container">
+                    <img src="" aria-label="">
+                    <img src="" aria-label="">
+                    <img src="" aria-label="">
+                </div>
+                <div class="media-bottombar-container">
+                    <div class="interaction-container">
+                        <div class="bt-container">
+                            <button class="project-bt trips-bt"><img class="down-arrow" src="assets/arrow.svg" aria-label="next"></button>
+                            <button class="project-bt trips-bt"><img class="up-arrow" src="assets/arrow.svg" aria-label="previous"></button>
+                        </div>
+                        <div class="heart-count container">
+                            <button class="project-bt heart-bt"><img src="assets/heart.svg" aria-label="love" class="heart"></button>
+                            <span class="heart-counter">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tiles-vertical">
+                <div class="tiles-horizontal">
+                    <div class="tile size1x2 yellow vertical"></div>
+                    <div class="tile size2x2 nofill"></div>
+                </div>
+                <div class="tiles-vertical">
+                    <div class="tiles-horizontal">
+                        <div class="tile size2x2 red"></div>
+                        <div class="tiles-vertical">
+                            <div class="tile size1x1 nofill"></div>
+                            <div class="tile size1x1 red-d"></div>
+                        </div>
+                    </div>
+                    <div class="tiles-horizontal">
+                        <div class="tile size2x3 yellow vertical"></div>
+                        <div class="tile size1x3 green-d vertical"></div>
+                    </div>
+                    <div class="tiles-horizontal">
+                        <div class="tile size1x2 green vertical"></div>
+                        <div class="tiles-vertical">
+                            <div class="tiles-horizontal">
+                                <div class="tile size1x1 yellow"></div>
+                                <div class="tile size1x1 green"></div>
+                            </div>
+                            <div class="tile size1x2 red-d"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="about-me-frame crafts-frame">
+            <div class="title-text yellow">CRAFTS AND BAKING BREAD</div>
+            <div class="tiles-horizontal">
+                <div class="media-frame crafts-media-frame">
+                    <div class="media-container crafts-media-container">
+                        <img src="" aria-label="">
+                        <img src="" aria-label="">
+                        <img src="" aria-label="">
+                    </div>
+                </div>
+                <div class="tiles-vertical">
+                    <div class="tiles-horizontal">
+                        <div class="tiles-vertical">
+                            <div class="tile size2x2 green"></div>
+                            <div class="tile size1x2 red-d"></div>
+                            <div class="tiles-horizontal">
+                                <div class="tile size1x2 green-d vertical"></div>
+                                <div class="tiles-vertical">
+                                    <div class="tile size1x1 yellow"></div>
+                                    <div class="tile size1x1 red"></div>
+                                </div>
+                            </div>
+                            <div class="tiles-horizontal">
+                                <div class="tile size1x1 nofill"></div>
+                                <button class="tile-bt tile-bt-left"><img src="assets/arrow-yellow.svg" class="arrow-yellow" aria-label="previous"></button>
+                            </div>
+                        </div>
+                        <div class="tiles-vertical">
+                            <div class="tile size2x3 yellow vertical"></div>
+                            <div class="tile size1x2 green"></div>
+                            <div class="tile size2x2 red"></div>
+                        </div> 
+                        <div class="tiles-vertical">
+                            <div class="tile size1x1 dark"></div>
+                            <button class="tile-bt tile-bt-right"><img src="assets/arrow-yellow.svg" class="arrow-yellow" aria-label="next"></button=>
+                            <div class="tile size1x3 nofill vertical"></div>
+                            <div class="tile size1x1 yellow-d"></div>
+                        </div> 
+                    </div>
+                    <div class="tiles-horizontal">
+                        <div class="tiles-vertical">
+                            <div class="tile size1x2 nofill"></div>
+                            <div class="tile size2x2 yellow-d"></div>
+                        </div>
+                        <div class="tiles-vertical">
+                            <div class="tile size1x2 dark vertical"></div>
+                            <div class="tile size1x1 red-d"></div>
+                        </div>
+                        <div class="tiles-vertical">
+                            <div class="tile size2x2 green-d"></div>
+                            <div class="tile size1x2 yellow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-section section" id="contact">
+        <div class="title-container"><div class="title-text">CONTACT</div></div>
+        <div class="contact-content-container">
+            <p class="p-desktop">Thank you for staying till the end! If you found my portfolio interesting, feel free to send me an e-mail, or contact me through social media!</p>
+        </div>
+        <div class="social-icon-container">
+            <a href="#"><img src="assets/email.svg" aria-label="email" class="social-icon"></a>
+            <a href="#"><img src="assets/facebook.svg" aria-label="facebook" class="social-icon"></a>
+            <a href="#"><img src="assets/instagram.svg" aria-label="instagram" class="social-icon"></a>
+            <a href="#"><img src="assets/youtube.svg" aria-label="youtube" class="social-icon"></a>
+            <a href="#"><img src="assets/whatsapp.svg" aria-label="whatsapp" class="social-icon"></a>
+        </div>
+    </div>
+    <footer class="footer main-section">
+        <img class="footer-img "src="assets/footer-img.svg">
+        <div class="footer-frame">
+            <div class="footer-container">
+                <div class="footer-logo-date-container">
+                    <img class="logo-image" src="assets/logo.svg" aria-label="dslevi.">
+                    <p class="footer-date">2025.</p>
+                </div>
+                <div class="footer-list-note-container">
+                    <ul class="footer-list">
+                        <li class="footer-item"><a href="#hero">Home</a></li>
+                        <li class="footer-item"><a href="#manifesto">Manifesto</a></li>
+                        <li class="footer-item"><a href="#projects">Projects</a></li>
+                        <li class="footer-item"><a href="#aboutme">About Me</a></li>
+                        <li class="footer-item"><a href="#contact">Contact</a></li>
+                    </ul>
+                    <ul class="footer-list">
+                        <li class="footer-item"><a href="">Email</a></li>
+                        <li class="footer-item"><a href="">Facebook</a></li>
+                        <li class="footer-item"><a href="">Instagram</a></li>
+                        <li class="footer-item"><a href="">youtube</a></li>
+                        <li class="footer-item"><a href="">WhatsApp</a></li>
+                    </ul>
+                    <div contenteditable="true" id="noteField">Type your note here...</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/footernote.js"></script>
+    <script src="js/hero.js"></script>
+    <script src="js/manifesto.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/media-content.js"></script>
+    <script src="js/pause-yt.js"></script>
+    <script src="js/touchscreen.js"></script>
+
+
+</body>
+</html>
