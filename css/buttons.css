@@ -9,56 +9,97 @@
     justify-content: center;
 }
 
+.ghost-bt {
+    background: none;
+    border: none;
+    pointer-events: none;
+    content:url("../assets/ghost.svg");
+}
+
 /* Button Icons */
 .project-bt img, .nature-bt img, .trips-bt img, .heart-bt img, .tile-bt img {
     width: 46.5px;
     height: 46.5px;
-    transition: content 0.1s ease-in-out, transform 0.1s ease-in-out;
 }
 
-/* Arrow Rotations */
-.right-arrow {
-    transform: rotate(0deg);
-}
+/* Arrow Rotations (Default Upward) */
+.bt-left img { transform: rotate(-90deg); }  /* Left */
+.bt-right img { transform: rotate(90deg); }  /* Right */
+.left-arrow img { transform: rotate(-90deg); }  /* Left */
+.right-arrow img { transform: rotate(90deg); }  /* Right */
+.up-arrow img { transform: rotate(0deg); }  /* Up */
+.down-arrow img { transform: rotate(180deg); }  /* Down */
+.top-arrow img { transform: rotate(0deg); }  /* Dropdown closed */
 
-.left-arrow {
+.top-arrow {
     transform: rotate(180deg);
 }
 
-.up-arrow {
-    transform: rotate(-90deg);
+/* Open Dropdown Arrow */
+.project-dropdown.open + .project-bt .top-arrow,
+.project-dropdown.open + .project-bt:hover .top-arrow {
+    transform: rotate(0deg); /* Flip back to up when open */
 }
 
-.down-arrow {
-    transform: rotate(90deg);
+/* Hover States (Maintaining Rotations) */
+.project-bt.bt-left:hover img { 
+    content: url("../assets/arrow-hover.svg"); 
+    transform: rotate(-90deg); 
+}
+.project-bt.bt-right:hover img { 
+    content: url("../assets/arrow-hover.svg"); 
+    transform: rotate(90deg); 
+}
+.project-bt.left-arrow:hover img { 
+    content: url("../assets/arrow-hover.svg"); 
+    transform: rotate(-90deg); 
+}
+.project-bt.right-arrow:hover img { 
+    content: url("../assets/arrow-hover.svg"); 
+    transform: rotate(90deg); 
+}
+.project-bt.project-dropdown-bt:hover img { 
+    content: url("../assets/arrow-hover.svg"); 
+    transform: rotate(180deg); 
+}
+.project-bt.discord:hover img { 
+    content: url("../assets/discord-hover.svg"); 
+}
+.project-bt.nature-bt.left-arrow:hover img { 
+    content: url("../assets/arrow-hover.svg"); 
+    transform: rotate(-90deg); 
+}
+.project-bt.nature-bt.right-arrow:hover img { 
+    content: url("../assets/arrow-hover.svg"); 
+    transform: rotate(90deg); 
+}
+.project-bt.nature-bt.play:hover img { 
+    content: url("../assets/play-hover.svg"); 
+}
+.project-bt.nature-bt.sound:hover img { 
+    content: url("../assets/sound-hover.svg"); 
+}
+.project-bt.trips-bt.down-arrow:hover img { 
+    content: url("../assets/arrow-hover.svg"); 
+    transform: rotate(180deg); 
+}
+.project-bt.trips-bt.up-arrow:hover img { 
+    content: url("../assets/arrow-hover.svg"); 
+    transform: rotate(0deg); 
+}
+.project-bt.heart-bt.heart:hover img { 
+    content: url("../assets/heart-hover.svg"); 
+}
+.tile-bt.tile-bt-left.arrow-yellow:hover img { 
+    content: url("../assets/arrow-yellow-hover.svg"); 
+    transform: rotate(-90deg); 
+}
+.tile-bt.tile-bt-right.arrow-yellow:hover img { 
+    content: url("../assets/arrow-yellow-hover.svg"); 
+    transform: rotate(90deg); 
 }
 
-.top-arrow {
-    transform: rotate(-90deg);
-}
-
-/* Hover States for Icon Buttons */
-.project-bt:hover img {
-    content: url("../assets/arrow-hover.svg");
-}
-
-.heart-bt:hover img {
-    content: url("../assets/heart-hover.svg");
-}
-
-.tile-bt:hover img {
-    content: url("../assets/arrow-yellow-hover.svg");
-}
-
-.play:hover {
-    content: url("../assets/play-hover.svg");
-}
-
-.sound:hover {
-    content: url("../assets/sound-hover.svg");
-}
-
-
+/* Standard Button Styling */
 .bt {
     border: var(--dark) 1px solid;
     padding: 0.75rem 1.5rem;
@@ -69,13 +110,13 @@
     letter-spacing: 3%;    
     cursor: pointer;
     background-size: cover;
-    transition: background-image 0.1s ease-in-out;
     height: 46px;
 }
 
+/* Primary Button */
 .bt-primary {
     background-color: var(--yellow);
-    color: var(--dark)
+    color: var(--dark);
 }
 
 .bt-primary:hover {
@@ -83,12 +124,13 @@
     color: var(--yellow);
 }
 
+/* Secondary Button */
 .bt-secondary {
     background-color: var(--green);
-    color: var(--dark)
+    color: var(--dark);
 }
 
 .bt-secondary:hover {
     background-color: var(--green-d);
-    color: var(--green)
+    color: var(--green);
 }
