@@ -1,0 +1,119 @@
+* {
+    -webkit-user-select: none;  /* Safari */
+    -ms-user-select: none;      /* IE 10 and IE 11 */
+    user-select: none;          /* Standard syntax */
+    box-sizing: border-box;
+}
+
+img[src$=".svg"],
+img[src$=".jpg"],
+img[src$=".jpeg"],
+embed[type="application/pdf"],
+object[type="application/pdf"] {
+    user-drag: none; /* Prevents dragging in WebKit browsers */
+    -webkit-user-drag: none; /* Explicitly for Safari */
+}
+
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    overscroll-behavior: none;
+}
+
+
+
+/* TOOLTIP */
+.tooltip {
+    position: absolute;
+    background: var(--dark);
+    color: var(--light);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 1000;
+    display: none; /* Hidden by default */
+}
+
+
+body {
+    background-color: var(--light);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+    overscroll-behavior-y: contain;
+    position: relative;
+    gap: 45px;
+}
+
+.logo-container {
+  flex: 0 0 auto;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  height: fill-available;
+  align-items: center;
+}
+
+.logo-image {
+  height: 20px;
+  width: auto;
+}
+
+/* Only allow text selection for specific elements */
+input, 
+textarea,
+#noteField {
+    -webkit-user-select: text !important;  /* Safari */
+    -ms-user-select: text !important;      /* IE 10 and IE 11 */
+    user-select: text !important;          /* Standard syntax */
+}
+
+/* Global section styling */
+.section {
+    display: flex;
+    flex-direction: column;
+    max-width: 1065px;
+    min-height: 100vh;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0vh 0vw;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+/* Global title styling */
+.title-container {
+    width: 100%;
+    max-width: 1065px;
+    display: flex;
+    border: 1px solid var(--dark);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    justify-content: center;
+    max-height: 108px;
+}
+
+.title-text {
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    align-self: center;
+}
+

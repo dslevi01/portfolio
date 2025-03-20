@@ -1,0 +1,117 @@
+/* Header Layout */
+.header {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: fit-content;
+    background-color: var(--dark);
+    padding: 0;
+    z-index: 1000;
+}
+
+.menu-button {
+    display: none;
+}
+
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1065px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Logo Styling */
+.logo-container {
+    flex: 0 0 auto;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    height: fill-available;
+    align-items: center;
+}
+
+.logo-image {
+    height: 20px;
+    width: auto;
+}
+
+/* Menu Items */
+.menu-item-container {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: fit-content;
+}
+
+.menu-item {
+    text-decoration: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--light);
+}
+
+.menu-item:hover {
+    background-color: var(--light-d);
+    color: var(--dark);
+}
+
+/* Contact Dropdown */
+.contact-menu-item {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    position: relative;
+    text-decoration: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    display: block;
+    color: var(--red);
+}
+
+.contact-menu-item:hover {
+    background-color: var(--red-d);
+    color: var(--light);
+}
+
+.dropdown-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+    margin-top: -1px;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.2s steps(3, end), padding 0.2s steps(3, end);
+}
+
+.contact-menu-item:hover .dropdown-content {
+    height: calc(5 * 46.5px + 4 * 0.5rem + 3rem); /* icons + gaps + padding */
+    padding: 1.5rem;
+}
+
+.social-icon {
+    width: 46.5px;
+    height: 46.5px;
+}
