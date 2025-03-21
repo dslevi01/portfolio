@@ -1,11 +1,86 @@
 .about-me-frame {
   display: flex;
   align-items: center;
+  max-width: 1065px;
+  margin-top:15px;
+  gap: 15px;
 }
 
 .aboutme-image {
   width: auto;
   max-height: 200px;
-  border-radius: left 10%;
-  margin: 0 auto;
+  border-top-right-radius: 9px;
+  border-bottom-right-radius: 9px;
+  margin: 0;
+  align-self: flex-end; /* Pushes the image to the bottom */
+  display: block; /* Removes the extra gap caused by inline images */
+  
+}
+
+.aboutme-description-text {
+  font-size: 1.3rem;
+  font-weight: 300;
+  margin: 0;
+
+}
+
+.aboutme-description-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  align-self: center;
+}
+
+.aboutme-description-image-container{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  width: 100%;
+  gap: 30px;
+  border: var(--dark) 1px solid;
+  border-radius: 10px;
+  padding-left: 18px;
+  margin-bottom: 15px;
+}
+
+/* NATURE */
+
+.nature-media-container {
+  display: flex;
+  flex-direction: row; /* Stack media elements vertically */
+  align-items: flex-start; /* Align media to the left */
+  height: fit-content; /* Hug the contents */
+  overflow: hidden;
+  border-radius: 10px;
+
+}
+
+.media-sidebar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  
+}
+
+
+.nature-media-container img video{
+  max-height: 500px;
+  width: auto;
+  display: block;
+  height: 100%;
+}
+
+
+.trips-media-frame{
+  border-radius: 10px;
+
+}
+
+
+.crafts-media-frame{
+  border-radius: 10px;
+  align-self: center;
+  justify-self: center;
 }

@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
     const menuButton = document.querySelector(".menu-button");
     const menu = document.getElementById("menu");
-    const menuToggle = document.getElementById("menu-toggle");
+    const menuItems = document.querySelectorAll(".menu-item"); // Select all menu items
     
     if (!menuButton || !menu) return; // Ensure elements exist
 
     // Store initial button position
     const initialTop = menuButton.getBoundingClientRect().top + window.scrollY; 
 
-    menuButton.addEventListener("click", function () {
+    menuButton.addEventListener("click", function (event) {
         document.body.classList.toggle("menu-open"); // Toggle class
 
         // When menu is open, force button to be red
@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             updateButtonStyle(); // Reapply scroll effect
         }
+
+        event.stopPropagation(); // Prevent click from triggering the document listener
     });
 
     function updateButtonStyle() {
@@ -39,4 +41,20 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", updateButtonStyle);
 
     updateButtonStyle(); // Run on page load
+
+    // Close menu when an item is clicked
+    menuItems.forEach(item => {
+        item.addEventListener("click", function () {
+            document.body.classList.remove("menu-open");
+            updateButtonStyle(); // Ensure button color updates
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function (event) {
+        if (!menu.contains(event.target) && !menuButton.contains(event.target)) {
+            document.body.classList.remove("menu-open");
+            updateButtonStyle();
+        }
+    });
 });

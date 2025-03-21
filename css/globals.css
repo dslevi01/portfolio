@@ -12,7 +12,6 @@ embed[type="application/pdf"],
 object[type="application/pdf"] {
     user-drag: none; /* Prevents dragging in WebKit browsers */
     -webkit-user-drag: none; /* Explicitly for Safari */
-    pointer-events: none; /* Optional: Prevents interaction if needed */
 }
 
 
@@ -54,6 +53,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     overscroll-behavior-y: contain;
     position: relative;
+    gap: 45px;
 }
 
 .logo-container {
@@ -81,12 +81,13 @@ textarea,
 
 /* Global section styling */
 .section {
+    display: flex;
+    flex-direction: column;
     max-width: 1065px;
     min-height: 100vh;
     margin: 0 auto;
     width: 100%;
     padding: 0vh 0vw;
-    margin-bottom: 60px;    
     align-items: center;
     font-family: 'Montserrat', sans-serif;
 
@@ -100,14 +101,14 @@ textarea,
     border: 1px solid var(--dark);
     border-radius: 10px;
     padding: 1rem;
-    margin-bottom: 2rem;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
     max-height: 108px;
 }
 
 .title-text {
-    font-size: 5rem;
+    font-size: 64px;
     font-weight: 700;
     color: var(--dark);
     margin: 0;

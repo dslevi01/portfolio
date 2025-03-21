@@ -4,8 +4,7 @@
     align-items: center;
     opacity: 0;
     transform: translateX(-50px); /* Move in from the left */
-    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1.4), 
-                opacity 0.15s ease-out;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1.4), opacity 0.15s ease-out;
 }
 
 .manifesto-line.visible {
@@ -18,6 +17,8 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 2vh;
+    width: 100%;
+    margin-bottom: 30px;
 }
 
 .manifesto-small {
@@ -28,8 +29,10 @@
     padding: 0;
     line-height: 1.2;
     align-self: center;
+    margin: 0;
 }
 
 .manifesto-big{
     padding: 0;
+    margin: 0;
 }

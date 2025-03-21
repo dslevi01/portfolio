@@ -7,10 +7,14 @@
     -webkit-user-drag: none; /* Explicitly for Safari */
 }
 
-
+.sketch-bt{
+    background: none;
+    border: none;
+    pointer-events: none;
+}
 
 /* Base Button Styles */
-.project-bt, .sketch-bt, .nature-bt, .trips-bt, .heart-bt, .tile-bt {
+.project-bt, .sketch-bt, .nature-bt, .trips-bt, .heart-bt {
     background: none;
     border: none;
     cursor: pointer;
@@ -18,6 +22,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.tile-bt img{
+    width:45;
+    height:45;
+}
+
+.tile-bt {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:45;
+    height:45;
+    padding: 0;
+    margin: 0;
 }
 
 .ghost-bt {
