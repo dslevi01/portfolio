@@ -1,84 +1,119 @@
 document.addEventListener("DOMContentLoaded", () => {
     const grid = document.getElementById("tileGrid");
+    let tiles = []; // Store created tiles
 
-    const horizontalSizes = ['size1x2', 'size1x3', 'size2x1', 'size3x1']; // More horizontal
-    const verticalSizes = ['size1x1', 'size2x2', 'size2x3']; // Less vertical
+    function shouldEnableGrid() {
+        return window.innerWidth >= 1065;
+    }
 
-    const colors = [
-        ...Array(20).fill('yellow'),
-        ...Array(20).fill('green'),
-        ...Array(20).fill('red'),
-        ...Array(10).fill('yellow-d'),
-        ...Array(10).fill('green-d'),
-        ...Array(10).fill('red-d'),
-        ...Array(5).fill('dark'),
-        ...Array(5).fill('nofill')
-    ];
+    function setupTileConfig() {
+        const isMobile = window.innerWidth < 768;
 
-    const maxTiles = 130;
+        return {
+            isMobile,
+            horizontalSizes: isMobile 
+                ? ['size1x1', 'size1x2'] 
+                : ['size1x2', 'size1x3', 'size2x1', 'size3x1'],
+            verticalSizes: isMobile 
+                ? ['size1x1', 'size2x2'] 
+                : ['size1x1', 'size2x2', 'size2x3'],
+            colors: [
+                ...Array(20).fill('yellow'),
+                ...Array(20).fill('green'),
+                ...Array(20).fill('red'),
+                ...Array(10).fill('yellow-d'),
+                ...Array(10).fill('green-d'),
+                ...Array(10).fill('red-d'),
+                ...Array(5).fill('dark'),
+                ...Array(5).fill('nofill')
+            ],
+            maxTiles: isMobile ? 80 : 138
+        };
+    }
 
-    function createTile() {
-        let tile = document.createElement('div');
+    function createTile(config) {
+        const tile = document.createElement('div');
         tile.classList.add('tile');
 
-        // 70% chance for horizontal, 30% for vertical
-        const isHorizontal = Math.random() < 0.7;
+        const isHorizontal = config.isMobile ? Math.random() < 0.5 : Math.random() < 0.7;
         const chosenSize = isHorizontal 
-            ? horizontalSizes[Math.floor(Math.random() * horizontalSizes.length)]
-            : verticalSizes[Math.floor(Math.random() * verticalSizes.length)];
+            ? config.horizontalSizes[Math.floor(Math.random() * config.horizontalSizes.length)]
+            : config.verticalSizes[Math.floor(Math.random() * config.verticalSizes.length)];
 
-        tile.classList.add(chosenSize);
-        tile.classList.add(colors[Math.floor(Math.random() * colors.length)]);
+        tile.classList.add(chosenSize, config.colors[Math.floor(Math.random() * config.colors.length)]);
         return tile;
     }
 
     function fillGrid() {
-        for (let i = 0; i < maxTiles; i++) {
-            grid.appendChild(createTile());
-        }
-    }
+        const config = setupTileConfig();
+        const fragment = document.createDocumentFragment();
 
-    fillGrid(); // Generate initial tiles
+        if (tiles.length === 0) {
+            // Generate new tiles only if they haven't been created before
+            for (let i = 0; i < config.maxTiles; i++) {
+                const tile = createTile(config);
+                tiles.push(tile);
+                fragment.appendChild(tile);
+            }
+        } else {
+            // Restore existing tiles
+            tiles.forEach(tile => fragment.appendChild(tile));
+        }
+
+        grid.appendChild(fragment);
+    }
 
     function updateTilesOnScroll() {
         const scrollY = window.scrollY + window.innerHeight;
-        const tiles = document.querySelectorAll(".tile");
-
-        tiles.forEach((tile) => {
+        document.querySelectorAll(".tile").forEach(tile => {
             const tileTop = tile.offsetTop;
             const progress = (scrollY - tileTop) / window.innerHeight;
 
-            if (progress > 0) {
-                if (tile.dataset.fixed === "true") {
-                    // Fixed tiles snap instantly
-                    tile.style.transitionDelay = "0ms";
-                    tile.classList.add("snapped");
-                } else {
-                    // Regular tiles keep the delay
-                    const baseDelay = Math.min(progress * 100, 200);
-                    const randomExtraDelay = Math.random() * 300;
-                    tile.style.transitionDelay = `${baseDelay + randomExtraDelay}ms`;
-                    tile.classList.add("snapped");
-                }
-            } else {
-                tile.classList.remove("snapped");
-
-                if (tile.getBoundingClientRect().top > window.innerHeight) {
-                    if (tile.dataset.fixed === "true") {
-                        // Hide fixed tile and respawn it
-                        tile.style.opacity = "0";
-                        setTimeout(() => {
-                            tile.style.opacity = "1";
-                        }, 500);
-                    } else {
-                        // Remove and regenerate non-fixed tile
-                        grid.removeChild(tile);
-                        grid.appendChild(createTile());
-                    }
-                }
+            if (progress > 0 && !tile.classList.contains("snapped")) {
+                const baseDelay = progress * 100;
+                const randomExtraDelay = Math.random() * 300;
+                tile.style.transitionDelay = `${Math.min(baseDelay, 200) + randomExtraDelay}ms`;
+                tile.classList.add("snapped");
             }
         });
     }
 
-    window.addEventListener("scroll", updateTilesOnScroll);
+    // Throttle scroll event
+    let lastExecution = 0;
+    function throttledScroll() {
+        const now = performance.now();
+        if (now - lastExecution > 100) { 
+            updateTilesOnScroll();
+            lastExecution = now;
+        }
+    }
+
+    function toggleGrid() {
+        if (shouldEnableGrid()) {
+            if (!grid.classList.contains("visible")) {
+                grid.classList.add("visible");
+                fillGrid(); // Restore or generate grid
+                window.addEventListener("scroll", throttledScroll);
+            }
+        } else {
+            grid.classList.remove("visible");
+            window.removeEventListener("scroll", throttledScroll);
+        }
+    }
+
+    // Intersection Observer to load tiles when section is visible
+    const observer = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+            toggleGrid(); 
+            observer.disconnect();
+        }
+    }, { threshold: 0.1 });
+
+    observer.observe(grid);
+
+    // Watch for window resize and toggle grid dynamically
+    window.addEventListener("resize", toggleGrid);
+
+    // Initial grid check on page load
+    toggleGrid();
 });

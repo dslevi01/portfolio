@@ -12,3 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Example: Button to toggle dark mode
 document.querySelector("#dark-mode-toggle").addEventListener("click", toggleDarkMode);
+
+document.querySelectorAll("button, img").forEach((el) => {
+    el.ondragstart = (e) => e.preventDefault();
+});

@@ -39,12 +39,27 @@
     background-color: transparent;
 }
 
+#tileGrid {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s ease-in-out;
+}
+
+#tileGrid.visible {
+    display: grid;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
 .grid {
     display: grid;
     align-self: center;
     grid-auto-rows: min-content;
     grid-template-rows: repeat(60, 1fr);
-    max-width: 1065px;
+    grid-template-columns: repeat(auto-fit, minmax(46.5px, 1fr)); /* Adjust columns dynamically */
+    max-width: 100%;
     gap: 15px;
     grid-auto-flow: dense;
     padding: 15px;
@@ -150,6 +165,7 @@
     Width: 1030.5px;
     Height:663px;
     margin: 0;
+    background-color: var(--green);
 }
 
 .media-container-tile{

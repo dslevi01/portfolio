@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://itch.io https://v6p9d9t4.ssl.hwcdn.net https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com https://www.gstatic.com https://www.googleapis.com; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com;">    
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://itch.io https://v6p9d9t4.ssl.hwcdn.net https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com https://www.gstatic.com https://www.googleapis.com https://*.firebaseapp.com https://*.firebasedatabase.app https://*.firebaseio.com; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com;">
     <title>dslevi.portfolio</title>
+    <link rel="icon" href="assets/design.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/globals.css">
     <link rel="stylesheet" href="css/styleguide.css">
-    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/1-header.css">
     <link rel="stylesheet" href="css/2-hero.css">
     <link rel="stylesheet" href="css/3-manifesto.css">
@@ -445,8 +445,8 @@
 
         <div class="grid" id="tileGrid">
             <!-- Fixed elements at different positions -->
-            <div class="tile red" data-fixed="true" style="grid-column: 4 / span 5; grid-row: 1 / span 2;"><div class= "tile-text-l">SKILLS</div></div>
-            <div class="tile red-d" data-fixed="true" style="grid-column: 9 / span 8; grid-row: 1 / span 2;">
+            <div class="tile red skills" data-fixed="true" style="grid-column: 4 / span 5; grid-row: 1 / span 2;"><div class= "tile-text-l">SKILLS</div></div>
+            <div class="tile red-d skills-icons" data-fixed="true" style="grid-column: 9 / span 8; grid-row: 1 / span 2;">
                 <div class="tile-items">
                     <img src="assets/AI.svg" aria-label="adobe illustrator">
                     <img src="assets/ID.svg" aria-label="adobe indesign">
@@ -455,8 +455,8 @@
                     <img src="assets/UNITY.svg" aria-label="unity">
                 </div>
             </div>
-            <div class="tile green" data-fixed="true" style="grid-column: 1/ span 7; grid-row: 4 / span 2;"><div class="tile-text-l">LEARNING</div></div>
-            <div class="tile green-d" data-fixed="true" style="grid-column: 8 / span 8; grid-row: 4 / span 2;">
+            <div class="tile green learning" data-fixed="true" style="grid-column: 1/ span 7; grid-row: 4 / span 2;"><div class="tile-text-l">LEARNING</div></div>
+            <div class="tile green-d learning-icons" data-fixed="true" style="grid-column: 8 / span 8; grid-row: 4 / span 2;">
                 <div class="tile-items">
                     <img src="assets/FIGMA.svg" aria-label="figma">
                     <img src="assets/HTML.svg" aria-label="html">
@@ -465,313 +465,187 @@
                     <img src="assets/BLENDER.svg" aria-label="blender">
                 </div>
             </div>
-            <div class="tile yellow" data-fixed="true" style="grid-column: 1 / span 12; grid-row: 8 / span 2;"><div class= "tile-text">IN MY FREE TIME</div></div>
-            <div class="tile dark" data-fixed="true" style="grid-column: 2 / span 6; grid-row: 10 / span 2;"><div class= "tile-text-l">I ENJOY</div></div>
-            <div class="tile green-d" data-fixed="true" style="grid-column: 1 / span 16; grid-row: 13 / span 2;"><div class= "tile-text-l">BEING CLOSE TO NATURE</div></div>
+            <div class="tile yellow freetime" data-fixed="true" style="grid-column: 1 / span 12; grid-row: 8 / span 2;"><div class= "tile-text">IN MY FREE TIME</div></div>
+            <div class="tile dark enjoy" data-fixed="true" style="grid-column: 2 / span 6; grid-row: 10 / span 2;"><div class= "tile-text-l">I ENJOY</div></div>
+            <div class="tile green-d nature" data-fixed="true" style="grid-column: 1 / span 16; grid-row: 13 / span 2;"><div class= "tile-text-l">BEING CLOSE TO NATURE</div></div>
             <div class="tile green nature-media-container-tile" data-fixed="true" style="grid-column: 1 / span 17; grid-row: 15 / span 11;">
                 <div class="media-frame nature-media-frame">
                     <div class="media-sidebar-container">
                         <div class="media-bt-container vertical-bt-container">
-                            <button class="project-bt nature-bt"><img class="left-arrow" src="assets/arrow.svg" aria-label="previous"/></button>
-                            <button class="project-bt nature-bt"><img class="right-arrow" src="assets/arrow.svg" aria-label="next"/></button>
-                            <button class="project-bt nature-bt"><img class="play" src="assets/play.svg" aria-label="play"/></button>
-                            <button class="project-bt nature-bt"><img class="sound" src="assets/sound.svg" aria-label="mute"/></button>
+                            <button class="project-bt nature-bt-left"><img class="left-arrow" src="assets/arrow-d.svg" aria-label="previous"/></button>
+                            <button class="project-bt nature-bt-right"><img class="right-arrow" src="assets/arrow-d.svg" aria-label="next"/></button>
+                            <button class="project-bt nature-bt play-pause" aria-label="play"><img src="assets/pause.svg" /></button>
+                            <button class="project-bt nature-bt sound-mute" aria-label="mute"><img src="assets/sound.svg"/></button>
                         </div>
                         <img src="assets/speaker.svg">
                     </div>
                     <div class="media-container nature-media-container">
-                        <video src="assets/intro.mp4"></video>
+                        <video class= "webm" src="assets/intro.webm"></video>
                         <img src="assets/megrass.jpg">
                         <img src="assets/mebridge.jpg">
                         <img src="assets/bugs.jpg">
                         <img src="assets/snail.jpg">
                         <img src="assets/alps.jpg">
-                        <img src="assets/lake.jpg">
+                        <img src="assets/lake.png">
                         <img src="assets/spider.jpg">
-                        <video src="assets/bye.mp4"></video>
+                        <video class= "webm" src="assets/bye.webm"></video>
                     </div>
                 </div>
             </div>
-            <div class="tile red-d" data-fixed="true" style="grid-column: 3 / span 13; grid-row: 27 / span 2;"><div class= "tile-text-l">TRIPS WITH MY WIFE</div></div>
+            <div class="tile red-d trips" data-fixed="true" style="grid-column: 3 / span 13; grid-row: 27 / span 2;"><div class= "tile-text-l">TRIPS WITH MY WIFE</div></div>
             <div class="tile red media-container-tile" data-fixed="true" style="grid-column: 4 / span 11; grid-row: 29 / span 9;">
                 <div class="media-frame trips-media-frame">
                     <div class="media-container trips-media-container">
-                        <!--<img src="assets/paris.png">
-                        <img src="assets/prague.jpg">
+                        <img class="first" src="assets/prague.jpg">
+                        <img src="assets/paris.png">
                         <img src="assets/angi.png">
-                        <img src="assets/stockholm.jpg">-->
+                        <img class="last" src="assets/stockholm.jpg">
                     </div>
                     <div class="media-bottombar-container">
                         <div class="interaction-container">
                             <div class="bt-container">
-                                <button class="project-bt trips-bt"><img class="down-arrow" src="assets/arrow.svg" aria-label="next"></button>
-                                <button class="project-bt trips-bt"><img class="up-arrow" src="assets/arrow.svg" aria-label="previous"></button>
+                                <button class="project-bt trips-bt-up"><img class="up-arrow" src="assets/arrow-d.svg" aria-label="previous"></button>
+                                <button class="project-bt trips-bt-down"><img class="down-arrow" src="assets/arrow-d.svg" aria-label="next"></button>
                             </div>
-                            <div class="heart-count container">
-                                <button class="project-bt heart-bt"><img src="assets/heart.svg" aria-label="love" class="heart"></button>
+                            <div class="heart-count-container">
                                 <span class="heart-counter">0</span>
+                                <button class="heart-bt"><img src="assets/heart.svg" aria-label="love" class="heart"></button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="tile yellow-d" data-fixed="true" style="grid-column: 2 / span 16; grid-row: 39 / span 2;"><div class= "tile-text-l">CRAFTS & BAKING BREAD</div></div>
+            <div class="tile yellow-d crafts" data-fixed="true" style="grid-column: 2 / span 16; grid-row: 39 / span 2;"><div class= "tile-text-l">CRAFTS & BAKING BREAD</div></div>
 
             <div class="tile yellow media-container-tile" data-fixed="true" style="grid-column: 1 / span 11; grid-row: 42 / span 9;">
 
                 <div class="media-frame crafts-media-frame">
                     <div class="media-container crafts-media-container">
-                        <!--<img src="assets/craft.jpg" aria-label="">
-                        <img src="assets/bread.jpg" aria-label="">-->
+                        <img src="assets/craft.jpg">
+                        <img src="assets/bread.jpg">
                     </div>
                 </div>
 
             </div>
 
-            <div class="tile yellow size1x1" data-fixed="true" style="grid-column: 17 / span 1; grid-row: 41 / span 1;">
-                <button class="tile-bt tile-bt-right"><img src="assets/arrow-yellow.svg" class="arrow-yellow" aria-label="next"></button>
+            <div class="tile yellow size1x1 rarrow" data-fixed="true" style="grid-column: 16 / span 1; grid-row: 42 / span 1;">
+                <button class="tile-bt tile-bt-right"><img src="assets/r-tilearrow.svg" class="arrow-yellow" aria-label="next"></button>
             </div>
-            <div class="tile yellow size1x1" data-fixed="true" style="grid-column: 14 / span 1; grid-row: 45 / span 1;">
-                <button class="tile-bt tile-bt-left"><img src="assets/arrow-yellow.svg" class="arrow-yellow" aria-label="previous"></button>
+            <div class="tile yellow size1x1 larrow" data-fixed="true" style="grid-column: 13 / span 1; grid-row: 45 / span 1;">
+                <button class="tile-bt tile-bt-left"><img src="assets/l-tilearrow.svg" class="arrow-yellow" aria-label="previous"></button>
             </div>
 
 
 
         </div>
         
-    </div> 
-        <!-- <div class="about-me-frame tiles-horizontal">
-            <div class="tile size2x2 nofill"></div>
-            <div class="tiles-vertical">
-                <div class="tile size1x1 red"></div>
-                <div class="tile size1x1 green"></div>
-        
-            </div>
-            <div class="tile size1x2 yellow vertical"></div>
-            <div class= "tile-text-l red">SKILLS</div>
-            <div class="tile-items red-d ">
-                <img src="assets/AI.svg" aria-label="adobe illustrator">
-                <img src="assets/ID.svg" aria-label="adobe indesign">
-                <img src="assets/PS.svg" aria-label="abode photoshop">
-                <img src="assets/PR.svg" aria-label="adobe premiere">
-                <img src="assets/UNITY.svg" aria-label="unity">
-            </div>
-        </div>
-        <div class="about-me-frame tiles-horizontal">
-            <div class="tile-text-l green">LEARNING</div>
-            <div class="tile-items green-d ">
-                <img src="assets/FIGMA.svg" aria-label="figma">
-                <img src="assets/HTML.svg" aria-label="html">
-                <img src="assets/CSS.svg" aria-label="css">
-                <img src="assets/BLENDER.svg" aria-label="blender">
-                <img src="assets/WEBFLOW.svg" aria-label="webflow">
-            </div>
-            <div class="tile size2x2 red"></div>
-        </div>
-        <div class="about-me-frame tiles-vertical">
-            <div class="tiles-horizontal">
-                <div class="tile-text yellow">IN MY FREE TIME</div>
-                <div class="tile size2x2 green-d"></div>
-            </div>
-            <div class="about-me-frame tiles-horizontal">
-                <div class="tile size1x2 red vertical"></div>
-                <div class="tile-text-l dark">I ENJOY</div>
-                <div class="tiles-vertical">
-                    <div class="tile size1x1 nofill"></div>
-                    <div class="tile size1x1 green"></div>
+        <div class="phone-grid">
+            <div class="skills-learning-container">
+                <div class= "tile-text-l skills">SKILLS</div>
+                <div class="tile-items skills-items">
+                    <img src="assets/AI.svg" aria-label="adobe illustrator">
+                    <img src="assets/ID.svg" aria-label="adobe indesign">
+                    <img src="assets/PS.svg" aria-label="abode photoshop">
+                    <img src="assets/PR.svg" aria-label="adobe premiere">
+                    <img src="assets/UNITY.svg" aria-label="unity">
                 </div>
-                <div class="tile size2x2 red"></div>
-                <div class="tiles-horizontal">
-                    <div class="tiles-horizontal">
-                        <div class="tile size1x2 dark"></div>
-                        <div class="tile size1x1 yellow"></div>
+            </div>
+
+            <div class="skills-learning-container">
+                <div class="tile-text-l learning">LEARNING</div>
+                <div class="tile-items learning-items">
+                    <img src="assets/FIGMA.svg" aria-label="figma">
+                    <img src="assets/HTML.svg" aria-label="html">
+                    <img src="assets/CSS.svg" aria-label="css">
+                    <img src="assets/REACT.svg" aria-label="react">
+                    <img src="assets/BLENDER.svg" aria-label="blender">
+                </div>
+            </div>
+            <div class="freetime-titles-container">
+                <div class="phonetile yellow"><div class= "tile-text">IN FREE TIME</div></div>
+                <div class="phonetile dark"><div class= "tile-text-l">I ENJOY</div></div>
+            </div>
+
+            <div class="sub-section">
+                <div class="phonetile green-d"><div class= "tile-text-l">BEING CLOSE</div></div>
+                <div class="phonetile green-d"><div class= "tile-text-l">TO NATURE</div></div>
+
+                <div class="media-frame nature-media-frame">
+                    <div class="media-container nature-media-container">
+                        <video class= "webm" src="assets/intro.webm"></video>
+                        <img src="assets/megrass.jpg">
+                        <img src="assets/mebridge.jpg">
+                        <img src="assets/bugs.jpg">
+                        <img src="assets/snail.jpg">
+                        <img src="assets/alps.jpg">
+                        <img src="assets/lake.png">
+                        <img src="assets/spider.jpg">
+                        <video class= "webm" src="assets/bye.webm"></video>
                     </div>
-                    <div class="tile size1x3 yellow"></div>
-                </div>
-                <div class="tiles-vertical">
-                    <div class="tiles-horizontal">
-                        <div class="tile size1x1 nofill"></div>
-                        <div class="tile size1x1 yellow"></div>
-                    </div>
-                </div>
-                <div class="tiles-vertical">
-                    <div class="tile size1x3 green vertical"></div>
-                    <div class="tile size1x1 nofill"></div>
-                </div>
-                <div class="tiles-vertical">
-                    <div class="tile size1x1 red-d"></div>
-                    <div class="tile size1x2 yellow-d vertical"></div>
-                    <div class="tile size1x1 yellow"></div>
-                </div>
-            </div>
-        </div>
-        <div class="about-me-frame nature-frame">   
-            <div class="tiles-horizontal">
-                <div class="tile-text-l green">BEING CLOSE TO NATURE</div>
-                <div class="tile size2x2 nofill"></div>
-            </div>
-            <div class="media-frame nature-media-frame">
-                <div class="media-sidebar-container">
-                    <div class="media-bt-container vertical-bt-container">
-                        <button class="project-bt nature-bt"><img class="left-arrow" src="assets/arrow.svg" aria-label="previous"/></button>
-                        <button class="project-bt nature-bt"><img class="right-arrow" src="assets/arrow.svg" aria-label="next"/></button>
-                        <button class="project-bt nature-bt"><img class="play" src="assets/play.svg" aria-label=" "/></button>
-                        <button class="project-bt nature-bt"><img class="sound" src="assets/sound.svg" aria-label=" "/></button>
-                    </div>
-                    <img src="assets/speaker.svg" aria-label=" ">
-                </div>
-                <div class="media-container nature-media-container">
-                    <video src=""></video>
-                    <video src=""></video>
-                    <img src="" aria-label="">
-                </div>
-            </div>
-        </div>
-        <div class="about-me-frame trips-frame">
-            <div class="tiles-horizontal">
-                <div class="tile size1x2 yellow vertical"></div>
-                <div class="tiles-vertical">
-                    <div class="tiles-horizontal">
-                        <div class="tile size1x1 red"></div>
-                        <div class="tile size1x1 green-d"></div>
-                    </div>
-                    <div class="tile size1x2 green"></div>
-                </div>
-                <div class="tile-text-l red">TRIPS WITH MY WIFE</div>
-                <div class="tile size1x2 green-d"></div>
-            </div>
-            <div class="tiles-horizontal">
-                <div class="tiles-vertical">
-                    <div class="tiles-horizontal">
-                        <div class="tiles-vertical">
-                            <div class="tile size2x2 red-d"></div>
-                            <div class="tile size2x2 green"></div>
+                    <div class="media-sidebar-container">
+                        <div class="media-bt-container vertical-bt-container">
+                            <button class="project-bt nature-bt-left"><img class="left-arrow" src="assets/arrow-d.svg" aria-label="previous"/></button>
+                            <button class="project-bt nature-bt-right"><img class="right-arrow" src="assets/arrow-d.svg" aria-label="next"/></button>
+                            <button class="project-bt nature-bt play-pause" aria-label="play"><img src="assets/pause.svg" /></button>
+                            <button class="project-bt nature-bt sound-mute" aria-label="mute"><img src="assets/sound.svg"/></button>
                         </div>
-                        <div class="tiles-vertical">
-                            <div class="tile size1x3 yellow vertical"></div>
-                            <div class="tile size1x1 yellow-d"></div>
-                        </div>
+                        <img class="speaker" src="assets/speaker.svg">
                     </div>
                 </div>
             </div>
-            <div class="tiles-vertical">
-                <div class="tile size1x3 red"></div>
-                <div class="tiles-horizontal">
-                    <div class="tile size1x2 green-d"></div>
-                    <div class="tile size1x1 dark"></div>
-                </div>
-                <div class="tile size2x3 yellow"></div>
-                <div class="tiles-horizontal">
-                    <div class="tile size1x1 green"></div>
-                    <div class="tile size1x2 nofill"></div>
-                </div>
-            </div>
-            <div class="media-frame trips-media-frame">
-                <div class="media-container trips-media-container">
-                    <img src="" aria-label="">
-                    <img src="" aria-label="">
-                    <img src="" aria-label="">
-                </div>
-                <div class="media-bottombar-container">
-                    <div class="interaction-container">
-                        <div class="bt-container">
-                            <button class="project-bt trips-bt"><img class="down-arrow" src="assets/arrow.svg" aria-label="next"></button>
-                            <button class="project-bt trips-bt"><img class="up-arrow" src="assets/arrow.svg" aria-label="previous"></button>
-                        </div>
-                        <div class="heart-count container">
-                            <button class="project-bt heart-bt"><img src="assets/heart.svg" aria-label="love" class="heart"></button>
-                            <span class="heart-counter">0</span>
-                        </div>
+
+            <div class="sub-section">
+                <div class="phonetile red-d"><div class= "tile-text-l">TRIPS WITH</div></div>
+                <div class="phonetile red-d"><div class= "tile-text-l">MY WIFE</div></div>
+
+                <div class="media-frame trips-media-frame">
+                    <div class="media-container trips-media-container">
+                        <img class="first" src="assets/prague.jpg">
+                        <img src="assets/paris.png">
+                        <img src="assets/angi.png">
+                        <img class="last" src="assets/stockholm.jpg">
                     </div>
-                </div>
-            </div>
-            <div class="tiles-vertical">
-                <div class="tiles-horizontal">
-                    <div class="tile size1x2 yellow vertical"></div>
-                    <div class="tile size2x2 nofill"></div>
-                </div>
-                <div class="tiles-vertical">
-                    <div class="tiles-horizontal">
-                        <div class="tile size2x2 red"></div>
-                        <div class="tiles-vertical">
-                            <div class="tile size1x1 nofill"></div>
-                            <div class="tile size1x1 red-d"></div>
-                        </div>
-                    </div>
-                    <div class="tiles-horizontal">
-                        <div class="tile size2x3 yellow vertical"></div>
-                        <div class="tile size1x3 green-d vertical"></div>
-                    </div>
-                    <div class="tiles-horizontal">
-                        <div class="tile size1x2 green vertical"></div>
-                        <div class="tiles-vertical">
-                            <div class="tiles-horizontal">
-                                <div class="tile size1x1 yellow"></div>
-                                <div class="tile size1x1 green"></div>
+                    <div class="media-bottombar-container">
+                        <div class="interaction-container">
+                            <div class="trips-bt-container">
+                                <button class="project-bt trips-bt-up"><img class="up-arrow" src="assets/arrow-d.svg" aria-label="previous"></button>
+                                <button class="project-bt trips-bt-down"><img class="down-arrow" src="assets/arrow-d.svg" aria-label="next"></button>
                             </div>
-                            <div class="tile size1x2 red-d"></div>
+                            <div class="heart-count-container">
+                                <span class="heart-counter">0</span>
+                                <button class="heart-bt"><img src="assets/heart.svg" aria-label="love" class="heart"></button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="about-me-frame crafts-frame">
-            <div class="tile-text yellow">CRAFTS AND BAKING BREAD</div>
-            <div class="tiles-horizontal">
+
+            <div class="sub-section">
+                <div class="phonetile yellow-d"><div class= "tile-text-l">CRAFTS &</div></div>
+                <div class="phonetile yellow-d"><div class= "tile-text-l">BAKING BREAD</div></div>
+
                 <div class="media-frame crafts-media-frame">
                     <div class="media-container crafts-media-container">
-                        <img src="" aria-label="">
-                        <img src="" aria-label="">
-                        <img src="" aria-label="">
+                        <img src="assets/craft.jpg">
+                        <img src="assets/bread.jpg">
                     </div>
-                </div>
-                <div class="tiles-vertical">
-                    <div class="tiles-horizontal">
-                        <div class="tiles-vertical">
-                            <div class="tile size2x2 green"></div>
-                            <div class="tile size1x2 red-d"></div>
-                            <div class="tiles-horizontal">
-                                <div class="tile size1x2 green-d vertical"></div>
-                                <div class="tiles-vertical">
-                                    <div class="tile size1x1 yellow"></div>
-                                    <div class="tile size1x1 red"></div>
-                                </div>
-                            </div>
-                            <div class="tiles-horizontal">
-                                <div class="tile size1x1 nofill"></div>
-                                <button class="tile-bt tile-bt-left"><img src="assets/arrow-yellow.svg" class="arrow-yellow" aria-label="previous"></button>
-                            </div>
+                    <div class="media-bt-container">
+                        <div class="tilebutton yellow size1x1 larrow">
+                            <button class="tile-bt tile-bt-left"><img src="assets/l-tilearrow.svg" class="arrow-yellow" aria-label="previous"></button>
                         </div>
-                        <div class="tiles-vertical">
-                            <div class="tile size2x3 yellow vertical"></div>
-                            <div class="tile size1x2 green"></div>
-                            <div class="tile size2x2 red"></div>
-                        </div> 
-                        <div class="tiles-vertical">
-                            <div class="tile size1x1 dark"></div>
-                            <button class="tile-bt tile-bt-right"><img src="assets/arrow-yellow.svg" class="arrow-yellow" aria-label="next"></button=>
-                            <div class="tile size1x3 nofill vertical"></div>
-                            <div class="tile size1x1 yellow-d"></div>
-                        </div> 
-                    </div>
-                    <div class="tiles-horizontal">
-                        <div class="tiles-vertical">
-                            <div class="tile size1x2 nofill"></div>
-                            <div class="tile size2x2 yellow-d"></div>
-                        </div>
-                        <div class="tiles-vertical">
-                            <div class="tile size1x2 dark vertical"></div>
-                            <div class="tile size1x1 red-d"></div>
-                        </div>
-                        <div class="tiles-vertical">
-                            <div class="tile size2x2 green-d"></div>
-                            <div class="tile size1x2 yellow"></div>
+                        <div class="tilebutton yellow size1x1 rarrow">
+                            <button class="tile-bt tile-bt-right"><img src="assets/r-tilearrow.svg" class="arrow-yellow" aria-label="next"></button>
                         </div>
                     </div>
                 </div>
+
+
             </div>
+
         </div>
-    </div>-->
+
+        
+    </div> 
     <div class="contact-section section" id="contact">
         <div class="title-container"><div class="title-text">CONTACT</div></div>
         <div class="contact-content-container">
@@ -808,7 +682,7 @@
                         <li class="footer-item"><a href="">youtube</a></li>
                         <li class="footer-item"><a href="">WhatsApp</a></li>
                     </ul>
-                    <div contenteditable="true" id="noteField">Type your note here...</div>
+                    <div contenteditable="true" id="noteField">Leave a note...</div>
                 </div>
             </div>
         </div>
@@ -830,8 +704,13 @@
     <script src="js/body.js"></script>
     <script src="js/tiles.js"></script>
 
+    <script src="js/nature-media.js"></script>
+    <script src="js/nature-smallscreen.js"></script>
 
+    <script type="module" src="js/trips-media.js"></script>
 
+    
+    <script src="js/crafts.js"></script>
 
 </body>
 </html>

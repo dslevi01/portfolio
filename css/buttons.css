@@ -24,6 +24,7 @@
     justify-content: center;
 }
 
+
 .tile-bt img{
     width:45;
     height:45;
@@ -97,8 +98,11 @@
 .left-arrow img { transform: rotate(-90deg); }  /* Left */
 .right-arrow img { transform: rotate(90deg); }  /* Right */
 .up-arrow img { transform: rotate(0deg); }  /* Up */
-.down-arrow img { transform: rotate(180deg); }  /* Down */
+.down-arrow { transform: rotate(180deg); }  /* Down */
 .top-arrow img { transform: rotate(0deg); }  /* Dropdown closed */
+
+.left-arrow { transform: rotate(-90deg); }  /* Left */
+.right-arrow { transform: rotate(90deg); }  /* Right */
 
 .top-arrow {
     transform: rotate(180deg);
@@ -145,39 +149,39 @@
     content: url("../assets/minus-hover.svg"); 
 }
 
-.project-bt.nature-bt.left-arrow:hover img { 
-    content: url("../assets/arrow-hover.svg"); 
+
+/* Nature Media Buttons */
+.nature-bt-left:hover img { 
+    content: url("../assets/arrow-d-hover.svg"); 
     transform: rotate(-90deg); 
 }
-.project-bt.nature-bt.right-arrow:hover img { 
-    content: url("../assets/arrow-hover.svg"); 
+.nature-bt-right:hover img { 
+    content: url("../assets/arrow-d-hover.svg"); 
     transform: rotate(90deg); 
 }
-.project-bt.nature-bt.play:hover img { 
-    content: url("../assets/play-hover.svg"); 
+.nature-bt.sound-mute:hover img { 
+    content: url("../assets/mute-hover.svg"); 
 }
-.project-bt.nature-bt.sound:hover img { 
-    content: url("../assets/sound-hover.svg"); 
-}
-.project-bt.trips-bt.down-arrow:hover img { 
-    content: url("../assets/arrow-hover.svg"); 
-    transform: rotate(180deg); 
-}
-.project-bt.trips-bt.up-arrow:hover img { 
-    content: url("../assets/arrow-hover.svg"); 
+
+/* Trips Media Buttons */
+.trips-bt-up:hover img { 
+    content: url("../assets/arrow-d-hover.svg"); 
     transform: rotate(0deg); 
 }
-.project-bt.heart-bt.heart:hover img { 
+.trips-bt-down:hover img { 
+    content: url("../assets/arrow-d-hover.svg"); 
+    transform: rotate(180deg); 
+}
+
+/* Heart Button */
+.heart-bt:hover img { 
     content: url("../assets/heart-hover.svg"); 
 }
-.tile-bt.tile-bt-left.arrow-yellow:hover img { 
-    content: url("../assets/arrow-yellow-hover.svg"); 
-    transform: rotate(-90deg); 
-}
-.tile-bt.tile-bt-right.arrow-yellow:hover img { 
-    content: url("../assets/arrow-yellow-hover.svg"); 
-    transform: rotate(90deg); 
-}
+
+.tile-bt-left:hover img { 
+    content: url("../assets/l-tilearrow-hover.svg"); }
+.tile-bt-right:hover img { 
+    content: url("../assets/r-tilearrow-hover.svg"); }
 
 /* Standard Button Styling */
 .bt {
