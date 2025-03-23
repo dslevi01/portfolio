@@ -206,15 +206,15 @@ textarea,
     position: absolute;
     width: 100%;
     opacity: 0;
-    animation: fadeCycle 4s infinite;
+    animation: fadeCycle 5s infinite;
 }
 
 @keyframes fadeCycle {
     0% { opacity: 0; transform: translateY(5px); }
-    10% { opacity: 1; transform: translateY(0px); }
+    15% { opacity: 1; transform: translateY(0px); }
     50% { opacity: 1; }
-    80% { opacity: 0; transform: translateY(-5px); }
-    100% { opacity: 0; }
+    65% { opacity: 0; transform: translateY(-5px); }
+    80% { opacity: 0; }
 }
 
 /* Delay each text (adjusted for longer duration) */
