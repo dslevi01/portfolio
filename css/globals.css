@@ -203,9 +203,9 @@ textarea,
 
 /* Text Fading Animation */
 .loading-text {
+    display: none; /* Hide all by default */
     position: absolute;
     width: 100%;
-    opacity: 0;
-    transform: translateY(5px);
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    text-align: center;
+    opacity: 1; /* Ensure visible when displayed */
 }
