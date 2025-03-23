@@ -241,25 +241,25 @@
 /* GAME DESIGN */
 
 .game-title-container {
-    background-color: var(--red);
-    color: var(--light);
+    background-color: var(--light);
+    color: var(--dark);
 }
 
 
 .game-description-container {
-    background-color: var(--red);
-    color: var(--light);
+    background-color: var(--light);
+    color: var(--dark);
 }
 
 /* GRAPHIC DESIGN */
 
 .design-title-container{
-    background-color: var(--yellow);
+    background-color: var(--light);
     color: var(--dark);
 }
 
 .design-description-container{
-    background-color: var(--yellow);
+    background-color: var(--light);
     color: var(--dark);
 }
 
