@@ -3,8 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
     let index = 0;
 
     function showNextText() {
-        texts.forEach(text => (text.style.display = "none")); // Hide all texts
-        texts[index].style.display = "block"; // Show current text
+        texts.forEach(text => text.style.opacity = "0"); // Start fading out all texts
+        setTimeout(() => {
+            texts.forEach(text => text.style.display = "none"); // Hide all texts after fade-out
+            texts[index].style.display = "block"; // Show current text
+            setTimeout(() => {
+                texts[index].style.opacity = "1"; // Fade in current text
+            }, 50); // Small delay for a smooth transition
+        }, 500); // Fade-out duration (matches CSS)
 
         index = (index + 1) % texts.length;
         setTimeout(showNextText, 4500); // Change text every 4.5s
@@ -12,7 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Ensure first text is visible immediately
     if (texts.length > 0) {
+        texts.forEach(text => {
+            text.style.display = "none";
+            text.style.opacity = "0";
+        });
         texts[0].style.display = "block";
+        setTimeout(() => (texts[0].style.opacity = "1"), 50);
         setTimeout(showNextText, 4500);
     }
 });
