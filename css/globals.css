@@ -206,7 +206,7 @@ textarea,
     position: absolute;
     width: 100%;
     opacity: 0;
-    animation: fadeCycle 5s infinite;
+    animation: fadeCycle 4s infinite;
 }
 
 @keyframes fadeCycle {
