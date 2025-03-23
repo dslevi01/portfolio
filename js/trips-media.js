@@ -109,6 +109,11 @@ document.addEventListener("DOMContentLoaded", function () {
             heartCounter.textContent = heartCounts[activeId] || 0;
         }
 
+        function moveToItem(newIndex) {
+            tripsMediaItems.forEach(item => item.classList.remove("active"));
+            tripsMediaItems[newIndex].classList.add("active");
+            updateTripsView();
+        }
 
         function syncActiveItemToScroll() {
             let closestItem = tripsMediaItems.reduce((prev, curr) => {
@@ -131,29 +136,17 @@ document.addEventListener("DOMContentLoaded", function () {
             if (currentIndex < tripsMediaItems.length - 1) moveToItem(currentIndex + 1);
         });
 
-        let isManualScrolling = false;
-
-        function moveToItem(newIndex) {
-            isManualScrolling = true; // Prevent interference from scroll event
-            tripsMediaItems.forEach(item => item.classList.remove("active"));
-            tripsMediaItems[newIndex].classList.add("active");
-            updateTripsView();
-
-            setTimeout(() => { 
-                isManualScrolling = false; 
-            }, 100); // Allow some time for scrolling to settle
-        }
-
         tripsMediaContainer.addEventListener("scroll", () => {
-            if (isManualScrolling) return;
-
             clearTimeout(tripsMediaContainer.scrollTimeout);
-            tripsMediaContainer.scrollTimeout = setTimeout(syncActiveItemToScroll, 300); // Increased timeout
+            tripsMediaContainer.scrollTimeout = setTimeout(syncActiveItemToScroll, 100);
         });
 
-        // 🚀 Set the first item as active initially
-        tripsMediaItems[0].classList.add("active");
-        updateTripsView();
+        // Set the first item active only if none is already active
+        if (!tripsMediaItems.some(item => item.classList.contains("active"))) {
+            tripsMediaItems[0].classList.add("active");
+            updateTripsView();
+        }
+
 
         // ❤️ Heart button functionality (Firebase Integration)
         heartButton.addEventListener("click", function () {
