@@ -119,12 +119,15 @@ document.addEventListener("DOMContentLoaded", function () {
             let closestItem = tripsMediaItems.reduce((prev, curr) => {
                 return Math.abs(curr.offsetTop - tripsMediaContainer.scrollTop) < Math.abs(prev.offsetTop - tripsMediaContainer.scrollTop) ? curr : prev;
             });
-
+        
+            console.log(`🔄 syncActiveItemToScroll detected closest item: ${closestItem.dataset.id}`);
+        
             tripsMediaItems.forEach(item => item.classList.remove("active"));
             closestItem.classList.add("active");
-
+        
             updateTripsView();
         }
+        
 
         tripsUpBtn.addEventListener("click", () => {
             let currentIndex = tripsMediaItems.findIndex(item => item.classList.contains("active"));
@@ -141,12 +144,9 @@ document.addEventListener("DOMContentLoaded", function () {
             tripsMediaContainer.scrollTimeout = setTimeout(syncActiveItemToScroll, 100);
         });
 
-        // Set the first item active only if none is already active
-        if (!tripsMediaItems.some(item => item.classList.contains("active"))) {
-            tripsMediaItems[0].classList.add("active");
-            updateTripsView();
-        }
-
+        // 🚀 Set the first item as active initially
+        tripsMediaItems[0].classList.add("active");
+        updateTripsView();
 
         // ❤️ Heart button functionality (Firebase Integration)
         heartButton.addEventListener("click", function () {
