@@ -156,21 +156,52 @@ document.addEventListener("DOMContentLoaded", function () {
         // ❤️ Heart button functionality (Firebase Integration)
         heartButton.addEventListener("click", function () {
             if (heartButton.classList.contains("animating")) return;
-
+        
             let currentItem = tripsMediaItems.find(item => item.classList.contains("active"));
             if (!currentItem) return;
-
+        
             let activeId = currentItem.dataset.id;
             const heartRef = ref(database, `hearts/${activeId}`);
-
-            console.log(`❤️ Liking image: ${activeId}`);
-
-            // 🚀 Increment heart count in Firebase using update()
-            get(heartRef).then((snapshot) => {
-                let newCount = snapshot.exists() ? snapshot.val().hearts + 1 : 1;
-                update(heartRef, { hearts: newCount });
-            });
+        
+            heartButton.classList.add("animating");
+        
+            let containerRect = heartContainer.getBoundingClientRect();
+            let buttonRect = heartButton.getBoundingClientRect();
+            let travelDistance = buttonRect.left - containerRect.left;
+            let duration = Math.max(0.3, travelDistance / 400) + "s";
+        
+            // 🔄 **Animate heart button movement**
+            heartButton.style.transition = `transform ${duration} cubic-bezier(0.25, 1, 0.5, 1)`;
+            heartButton.style.transform = `translateX(${-travelDistance}px)`;
+        
+            // 🔄 **Animate heart counter fade out**
+            heartCounter.style.transition = `opacity ${duration} ease-in, filter ${duration} ease-in`;
+            heartCounter.style.opacity = "0";
+            heartCounter.style.filter = "blur(5px)";
+        
+            setTimeout(() => {
+                // ❤️ **Update Firebase heart count AFTER animation starts**
+                get(heartRef).then((snapshot) => {
+                    let newCount = snapshot.exists() ? snapshot.val().hearts + 1 : 1;
+                    update(heartRef, { hearts: newCount });
+        
+                    // 🎉 **Heart counter fade-in with updated number**
+                    heartCounter.textContent = newCount;
+                    heartCounter.style.transition = `opacity ${duration} ease-out, filter ${duration} ease-out`;
+                    heartCounter.style.opacity = "1";
+                    heartCounter.style.filter = "blur(0px)";
+                });
+        
+                // 🔄 **Return heart button to original position**
+                heartButton.style.transition = `transform ${duration} ease-out`;
+                heartButton.style.transform = "translateX(0)";
+            }, parseFloat(duration) * 800);
+        
+            setTimeout(() => {
+                heartButton.classList.remove("animating");
+            }, parseFloat(duration) * 1000); // Reduced from 2000ms to 1000ms for a snappier feel
         });
+        
     }
 
     // 🚀 Apply setup to all trips media frames
