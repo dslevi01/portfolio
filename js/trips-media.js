@@ -116,11 +116,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         function syncActiveItemToScroll() {
+            let containerScrollTop = tripsMediaContainer.scrollTop;
+            
             let closestItem = tripsMediaItems.reduce((prev, curr) => {
-                return Math.abs(curr.offsetTop - tripsMediaContainer.scrollTop) < Math.abs(prev.offsetTop - tripsMediaContainer.scrollTop) ? curr : prev;
+                let currDistance = Math.abs(curr.offsetTop - tripsMediaContainer.offsetTop - containerScrollTop);
+                let prevDistance = Math.abs(prev.offsetTop - tripsMediaContainer.offsetTop - containerScrollTop);
+                
+                return currDistance < prevDistance ? curr : prev;
             });
         
-            console.log(`🔄 syncActiveItemToScroll detected closest item: ${closestItem.dataset.id}`);
+            console.log(`🔄 Detected closest item: ${closestItem.dataset.id}`);
         
             tripsMediaItems.forEach(item => item.classList.remove("active"));
             closestItem.classList.add("active");
@@ -141,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         tripsMediaContainer.addEventListener("scroll", () => {
             clearTimeout(tripsMediaContainer.scrollTimeout);
-            tripsMediaContainer.scrollTimeout = setTimeout(syncActiveItemToScroll, 100);
+            tripsMediaContainer.scrollTimeout = setTimeout(syncActiveItemToScroll, 50);
         });
 
         // 🚀 Set the first item as active initially
