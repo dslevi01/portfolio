@@ -28,6 +28,39 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+// Disable scrolling function
+function disableScroll() {
+    window.scrollTo(0, 0);
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    window.addEventListener("wheel", preventDefault, { passive: false });
+    window.addEventListener("touchmove", preventDefault, { passive: false });
+    window.addEventListener("keydown", preventArrowKeys, { passive: false });
+}
+
+// Enable scrolling function
+function enableScroll() {
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+
+    window.removeEventListener("wheel", preventDefault);
+    window.removeEventListener("touchmove", preventDefault);
+    window.removeEventListener("keydown", preventArrowKeys);
+}
+
+// Prevent default scrolling behavior
+function preventDefault(event) {
+    event.preventDefault();
+}
+
+// Prevent arrow keys from scrolling
+function preventArrowKeys(event) {
+    if ([32, 37, 38, 39, 40].includes(event.keyCode)) {
+        event.preventDefault();
+    }
+}
+
 window.addEventListener("load", function () {
     const preloader = document.getElementById("preloader");
     const heroSection = document.getElementById("hero");
@@ -35,6 +68,9 @@ window.addEventListener("load", function () {
     let loadedHeroImages = 0;
     let totalHeroImages = heroImages.length;
     let fontsLoaded = false;
+
+    // Force the page to stay on #home
+    location.hash = "home";
 
     function checkHeroLoaded() {
         if (loadedHeroImages >= totalHeroImages && fontsLoaded) {
@@ -45,17 +81,14 @@ window.addEventListener("load", function () {
     function removePreloader() {
         setTimeout(() => {
             preloader.style.opacity = "0";
-            document.documentElement.style.overflow = ""; // Enable scrolling
-            document.body.style.overflow = "";
             setTimeout(() => {
                 preloader.style.display = "none";
+                enableScroll(); // Allow scrolling only after the preloader is gone
             }, 500);
         }, 500);
     }
 
-    // Prevent scrolling while loading
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.overflow = "hidden";
+    disableScroll(); // Block scrolling from the start
 
     if (totalHeroImages === 0) {
         loadedHeroImages = 1;
