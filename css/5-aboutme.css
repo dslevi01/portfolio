@@ -1,3 +1,8 @@
+.aboutme-section{
+  gap: 15px;
+}
+
+
 .about-me-frame {
   display: flex;
   align-items: center;
@@ -41,7 +46,6 @@
   border: var(--dark) 1px solid;
   border-radius: 10px;
   padding-left: 18px;
-  margin-bottom: 15px;
 }
 
 /* NATURE */

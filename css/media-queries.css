@@ -773,6 +773,7 @@
     .footer-container{
         padding: 15px;
         width: 100%;
+        height: min-content;
         gap: 15px;
     }
 

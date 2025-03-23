@@ -1,6 +1,7 @@
 .contact-section{
     min-height: 0;
     max-height: 30vh;
+    gap: 15px;
 }
 
   .p-desktop{

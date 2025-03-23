@@ -5,40 +5,46 @@ document.addEventListener("DOMContentLoaded", () => {
     function initialize() {
         isMobile = window.innerWidth < 1065;
 
-        if (isMobile) {
-            mediaContainer = document.querySelector(".phone-grid .crafts-media-container");
-            leftBtn = document.querySelector(".phone-grid .tile-bt-left");
-            rightBtn = document.querySelector(".phone-grid .tile-bt-right");
-        } else {
-            mediaContainer = document.querySelector(".grid .crafts-media-container");
-            leftBtn = document.querySelector(".grid .tile-bt-left");
-            rightBtn = document.querySelector(".grid .tile-bt-right");
-        }
+        // Get elements based on screen size
+        mediaContainer = document.querySelector(isMobile ? ".phone-grid .crafts-media-container" : ".grid .crafts-media-container");
+        leftBtn = document.querySelector(isMobile ? ".phone-grid .tile-bt-left" : ".grid .tile-bt-left");
+        rightBtn = document.querySelector(isMobile ? ".phone-grid .tile-bt-right" : ".grid .tile-bt-right");
 
         if (!mediaContainer || !leftBtn || !rightBtn) return;
-        mediaItems = mediaContainer.querySelectorAll("img, video"); // Include both images & videos
+
+        mediaItems = mediaContainer.querySelectorAll("img, video"); // Select images & videos
         if (mediaItems.length === 0) return;
 
         // Reset index when switching layouts
         currentIndex = 0;
 
+        // Remove old event listeners before adding new ones
+        removeEventListeners();
         addEventListeners();
     }
 
     function addEventListeners() {
-        leftBtn.addEventListener("click", () => {
-            currentIndex = (currentIndex - 1 + mediaItems.length) % mediaItems.length;
-            scrollToCurrent();
-        });
-
-        rightBtn.addEventListener("click", () => {
-            currentIndex = (currentIndex + 1) % mediaItems.length;
-            scrollToCurrent();
-        });
+        leftBtn.addEventListener("click", handleLeftClick);
+        rightBtn.addEventListener("click", handleRightClick);
 
         if (isMobile) {
             addSwipeListeners();
         }
+    }
+
+    function removeEventListeners() {
+        leftBtn?.removeEventListener("click", handleLeftClick);
+        rightBtn?.removeEventListener("click", handleRightClick);
+    }
+
+    function handleLeftClick() {
+        currentIndex = (currentIndex - 1 + mediaItems.length) % mediaItems.length;
+        scrollToCurrent();
+    }
+
+    function handleRightClick() {
+        currentIndex = (currentIndex + 1) % mediaItems.length;
+        scrollToCurrent();
     }
 
     function scrollToCurrent() {
