@@ -54,27 +54,20 @@ window.addEventListener("load", function () {
         checkHeroLoaded();
     });
 
-    // Loading text cycling
+    // Function to cycle loading texts
     function showNextText() {
-        if (preloader.style.opacity === "0") return; // Stop if preloader is removed
+        if (preloader.style.opacity === "0") return; // Stop if preloader is hidden
 
-        texts.forEach(text => {
-            text.style.opacity = "0";
-            text.style.transform = "translateY(5px)";
-        });
-
-        texts[index].style.opacity = "1";
-        texts[index].style.transform = "translateY(0px)";
+        texts.forEach(text => (text.style.display = "none")); // Hide all texts
+        texts[index].style.display = "block"; // Show the next one
 
         index = (index + 1) % texts.length;
-
         setTimeout(showNextText, 4500);
     }
 
     // Ensure first text is visible immediately
     if (texts.length > 0) {
-        texts[0].style.opacity = "1";
-        texts[0].style.transform = "translateY(0px)";
+        texts[0].style.display = "block";
     }
 
     setTimeout(showNextText, 4500); // Start cycling text after 4.5s
