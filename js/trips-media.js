@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log(`🎯 Active item: ${currentItem.dataset.id}`);
 
             tripsMediaContainer.scrollTo({
+                top: currentItem.offsetTop - tripsMediaContainer.offsetTop,
                 behavior: "smooth"
             });
 
@@ -139,10 +140,6 @@ document.addEventListener("DOMContentLoaded", function () {
             clearTimeout(tripsMediaContainer.scrollTimeout);
             tripsMediaContainer.scrollTimeout = setTimeout(syncActiveItemToScroll, 100);
         });
-
-        // 🚀 Set the first item as active initially
-        tripsMediaItems[0].classList.add("active");
-        updateTripsView();
 
         // ❤️ Heart button functionality (Firebase Integration)
         heartButton.addEventListener("click", function () {
