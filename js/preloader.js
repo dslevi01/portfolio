@@ -15,7 +15,6 @@ window.addEventListener("load", function () {
             preloader.style.opacity = "0";
             setTimeout(() => {
                 preloader.style.display = "none";
-                document.body.style.overflow = "auto"; // Enable scrolling after load
             }, 500);
         }, 500); // Small delay for smoother transition
     }
