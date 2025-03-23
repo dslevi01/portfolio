@@ -141,6 +141,10 @@ document.addEventListener("DOMContentLoaded", function () {
             tripsMediaContainer.scrollTimeout = setTimeout(syncActiveItemToScroll, 100);
         });
 
+        // 🚀 Set the first item as active initially
+        tripsMediaItems[0].classList.add("active");
+        updateTripsView();
+
         // ❤️ Heart button functionality (Firebase Integration)
         heartButton.addEventListener("click", function () {
             if (heartButton.classList.contains("animating")) return;
