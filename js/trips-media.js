@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function updateTripsView() {
-        const currentItem = tripsMediaItems.find(item => item.classList.contains("first"));
+        const currentItem = tripsMediaItems.find(item => item.classList.contains("active"));
         if (!currentItem) return;
 
         tripsMediaContainer.scrollTo({
@@ -91,19 +91,6 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
             scrollLock = false;
         }, 500); // Adjust timeout if needed
-    }
-
-    function syncActiveItemToScroll() {
-        if (scrollLock) return; // Prevent overriding active item after button press
-
-        let closestItem = tripsMediaItems.reduce((prev, curr) => {
-            return Math.abs(curr.offsetTop - tripsMediaContainer.scrollTop) < Math.abs(prev.offsetTop - tripsMediaContainer.scrollTop) ? curr : prev;
-        });
-
-        tripsMediaItems.forEach(item => item.classList.remove("active"));
-        closestItem.classList.add("active");
-
-        updateTripsView();
     }
 
     tripsUpBtn.addEventListener("click", () => {
