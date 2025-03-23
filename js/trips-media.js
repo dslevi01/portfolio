@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         tripsMediaContainer.addEventListener("scroll", () => {
             clearTimeout(tripsMediaContainer.scrollTimeout);
-            tripsMediaContainer.scrollTimeout = setTimeout(syncActiveItemToScroll, 100);
+            tripsMediaContainer.scrollTimeout = setTimeout(syncActiveItemToScroll, 500);
         });
 
         // 🚀 Set the first item as active initially
