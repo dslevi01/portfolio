@@ -87,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log(`🎯 Active item: ${currentItem.dataset.id}`);
 
             tripsMediaContainer.scrollTo({
-                top: currentItem.offsetTop - tripsMediaContainer.offsetTop,
                 behavior: "smooth"
             });
 
@@ -115,6 +114,17 @@ document.addEventListener("DOMContentLoaded", function () {
             updateTripsView();
         }
 
+        function syncActiveItemToScroll() {
+            let closestItem = tripsMediaItems.reduce((prev, curr) => {
+                return Math.abs(curr.offsetTop - tripsMediaContainer.scrollTop) < Math.abs(prev.offsetTop - tripsMediaContainer.scrollTop) ? curr : prev;
+            });
+
+            tripsMediaItems.forEach(item => item.classList.remove("active"));
+            closestItem.classList.add("active");
+
+            updateTripsView();
+        }
+
         tripsUpBtn.addEventListener("click", () => {
             let currentIndex = tripsMediaItems.findIndex(item => item.classList.contains("active"));
             if (currentIndex > 0) moveToItem(currentIndex - 1);
@@ -127,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         tripsMediaContainer.addEventListener("scroll", () => {
             clearTimeout(tripsMediaContainer.scrollTimeout);
-            tripsMediaContainer.scrollTimeout = setTimeout(syncActiveItemToScroll, 20);
+            tripsMediaContainer.scrollTimeout = setTimeout(syncActiveItemToScroll, 100);
         });
 
         // 🚀 Set the first item as active initially
