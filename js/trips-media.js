@@ -1,6 +1,11 @@
 // 🚀 Firebase Setup
-import { getDatabase, ref, get, set, update, onValue } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+import { 
+    initializeApp 
+} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+
+import { 
+    getDatabase, ref, get, set, onValue, runTransaction 
+} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
 
 document.addEventListener("DOMContentLoaded", function () {
     const tripsMediaFrames = document.querySelectorAll(".trips-media-frame");
@@ -13,15 +18,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 🚀 Firebase Config
     const firebaseConfig = {
-        apiKey: "AIzaSyAVnPMKHZk4jfBY5_BSnQKXx7WRBt5Keas",
-        authDomain: "portfolio-38609.firebaseapp.com",
-        databaseURL: "https://portfolio-38609-default-rtdb.europe-west1.firebasedatabase.app",
-        projectId: "portfolio-38609",
-        storageBucket: "portfolio-38609.firebasestorage.app",
-        messagingSenderId: "897198800712",
-        appId: "1:897198800712:web:5b60c794e664775f9efd7d",
-        measurementId: "G-6Q5V9TXXEG"
+        apiKey: "AIzaSyA8TuzM_qqcJg8ga6i94URyRojv8GbHVj8",
+        authDomain: "portfolio-a3ea9.firebaseapp.com",
+        databaseURL: "https://portfolio-a3ea9-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "portfolio-a3ea9",
+        storageBucket: "portfolio-a3ea9.appspot.com", // ✅ Corrected
+        messagingSenderId: "374152912195",
+        appId: "1:374152912195:web:0e0e78e2f672ef8957e3f6",
+        measurementId: "G-VM3TT2BXKL"
     };
+    
 
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
@@ -181,22 +187,28 @@ document.addEventListener("DOMContentLoaded", function () {
         
             setTimeout(() => {
                 // ❤️ **Update Firebase heart count AFTER animation starts**
-                get(heartRef).then((snapshot) => {
-                    let newCount = snapshot.exists() ? snapshot.val().hearts + 1 : 1;
-                    update(heartRef, { hearts: newCount });
-        
+                runTransaction(heartRef, (currentData) => {
+                    if (currentData === null) {
+                        return { hearts: 1 }; // Initialize if missing
+                    }
+                    return { hearts: currentData.hearts + 1 }; // Safe atomic increment
+                }).then(({ snapshot }) => {
+                    let newCount = snapshot.val().hearts;
+                    
                     // 🎉 **Heart counter fade-in with updated number**
                     heartCounter.textContent = newCount;
                     heartCounter.style.transition = `opacity ${duration} ease-out, filter ${duration} ease-out`;
                     heartCounter.style.opacity = "1";
                     heartCounter.style.filter = "blur(0px)";
+                }).catch((error) => {
+                    console.error("🔥 Firebase heart update failed:", error);
                 });
-        
+
                 // 🔄 **Return heart button to original position**
                 heartButton.style.transition = `transform ${duration} ease-out`;
                 heartButton.style.transform = "translateX(0)";
             }, parseFloat(duration) * 800);
-        
+
             setTimeout(() => {
                 heartButton.classList.remove("animating");
             }, parseFloat(duration) * 1000); // Reduced from 2000ms to 1000ms for a snappier feel
