@@ -71,5 +71,11 @@ window.addEventListener("load", function () {
         setTimeout(showNextText, 4500);
     }
 
-    showNextText(); // Start cycling text
+    // Ensure first text is visible immediately
+    if (texts.length > 0) {
+        texts[0].style.opacity = "1";
+        texts[0].style.transform = "translateY(0px)";
+    }
+
+    setTimeout(showNextText, 4500); // Start cycling text after 4.5s
 });
