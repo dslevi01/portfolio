@@ -1,12 +1,13 @@
 window.addEventListener("load", function () {
     const preloader = document.getElementById("preloader");
-    const images = document.querySelectorAll("img");
-    let loadedImages = 0;
-    let totalImages = images.length;
+    const heroSection = document.getElementById("hero");
+    const heroImages = heroSection.querySelectorAll("img");
+    let loadedHeroImages = 0;
+    let totalHeroImages = heroImages.length;
     let fontsLoaded = false;
 
-    function checkAllLoaded() {
-        if (loadedImages >= totalImages && fontsLoaded) {
+    function checkHeroLoaded() {
+        if (loadedHeroImages >= totalHeroImages && fontsLoaded) {
             removePreloader();
         }
     }
@@ -14,42 +15,40 @@ window.addEventListener("load", function () {
     function removePreloader() {
         setTimeout(() => {
             preloader.style.opacity = "0";
-            document.body.style.overflow = ""; // Reset overflow (fixes scrolling issue)
-            document.documentElement.style.overflow = ""; // Ensure scrolling works on mobile
+            document.documentElement.style.overflow = ""; // Enable scrolling
+            document.body.style.overflow = "";
             setTimeout(() => {
                 preloader.style.display = "none";
             }, 500);
         }, 500);
     }
 
-    // If no images exist, skip image waiting
-    if (totalImages === 0) {
-        loadedImages = 1; // Prevent getting stuck
+    // Prevent scrolling while loading
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+
+    if (totalHeroImages === 0) {
+        loadedHeroImages = 1;
     } else {
-        images.forEach(img => {
+        heroImages.forEach(img => {
             if (img.complete) {
-                loadedImages++;
-                checkAllLoaded();
+                loadedHeroImages++;
+                checkHeroLoaded();
             } else {
                 img.addEventListener("load", () => {
-                    loadedImages++;
-                    checkAllLoaded();
+                    loadedHeroImages++;
+                    checkHeroLoaded();
                 });
                 img.addEventListener("error", () => {
-                    loadedImages++; // Even failed images shouldn't block the loader
-                    checkAllLoaded();
+                    loadedHeroImages++;
+                    checkHeroLoaded();
                 });
             }
         });
     }
 
-    // Wait for fonts to load
     document.fonts.ready.then(() => {
         fontsLoaded = true;
-        checkAllLoaded();
+        checkHeroLoaded();
     });
-
-    // Ensure scrolling is disabled during preloading
-    document.body.style.overflow = "hidden";
-    document.documentElement.style.overflow = "hidden"; // Fixes mobile issue
 });

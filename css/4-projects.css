@@ -112,12 +112,15 @@
     font-size: 2.5rem;
     font-weight: 500;
     margin: 0;
+    color: var(--dark-d);
 }
 
 .project-tags{
     font-size: 1.2em;
     font-weight: 300;
     margin: 0;
+    color: var(--dark);
+
 }
 
 .project-dropdown {
