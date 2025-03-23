@@ -24,6 +24,10 @@
     justify-content: center;
 }
 
+.heart-bt {
+    will-change: transform;
+}
+
 
 .tile-bt img{
     width:45;

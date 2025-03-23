@@ -32,12 +32,14 @@
     margin: 0;
     display: flex;
     height: fill-available;
+    justify-content: center;
     align-items: center;
 }
 
 .logo-image {
     height: 20px;
     width: auto;
+    margin: 0;
 }
 
 /* Menu Items */
