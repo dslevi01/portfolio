@@ -106,6 +106,15 @@ document.addEventListener("DOMContentLoaded", function () {
         updateTripsView();
     }
 
+    tripsUpBtn.addEventListener("click", () => {
+        let currentIndex = tripsMediaItems.findIndex(item => item.classList.contains("active"));
+        if (currentIndex > 0) moveToItem(currentIndex - 1);
+    });
+
+    tripsDownBtn.addEventListener("click", () => {
+        let currentIndex = tripsMediaItems.findIndex(item => item.classList.contains("active"));
+        if (currentIndex < tripsMediaItems.length - 1) moveToItem(currentIndex + 1);
+    });
 
 
     // ❤️ Heart button functionality (Firebase Integration)
