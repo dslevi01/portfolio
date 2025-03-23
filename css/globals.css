@@ -201,11 +201,11 @@ textarea,
     bottom: 15%;
 }
 
-/* Text Fading Animation */
+/* Smooth Fading Animation */
 .loading-text {
-    display: none; /* Hide all by default */
     position: absolute;
     width: 100%;
     text-align: center;
-    opacity: 1; /* Ensure visible when displayed */
+    opacity: 1;
+    display: none; /* Start hidden, first one shown via JS */
 }

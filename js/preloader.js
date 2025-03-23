@@ -56,10 +56,8 @@ window.addEventListener("load", function () {
 
     // Function to cycle loading texts
     function showNextText() {
-        if (preloader.style.opacity === "0") return; // Stop if preloader is hidden
-
         texts.forEach(text => (text.style.display = "none")); // Hide all texts
-        texts[index].style.display = "block"; // Show the next one
+        texts[index].style.display = "block"; // Show current text
 
         index = (index + 1) % texts.length;
         setTimeout(showNextText, 4500);
