@@ -93,22 +93,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 500); // Adjust timeout if needed
     }
 
-    tripsUpBtn.addEventListener("click", () => {
-        let currentIndex = tripsMediaItems.findIndex(item => item.classList.contains("active"));
-        if (currentIndex > 0) moveToItem(currentIndex - 1);
-    });
+    function syncActiveItemToScroll() {
+        if (scrollLock) return; // Prevent overriding active item after button press
 
-    tripsDownBtn.addEventListener("click", () => {
-        let currentIndex = tripsMediaItems.findIndex(item => item.classList.contains("active"));
-        if (currentIndex < tripsMediaItems.length - 1) moveToItem(currentIndex + 1);
-    });
+        let closestItem = tripsMediaItems.reduce((prev, curr) => {
+            return Math.abs(curr.offsetTop - tripsMediaContainer.scrollTop) < Math.abs(prev.offsetTop - tripsMediaContainer.scrollTop) ? curr : prev;
+        });
 
-    tripsMediaContainer.addEventListener("scroll", () => {
-        if (scrollLock) return; // Ignore scroll events if locked
+        tripsMediaItems.forEach(item => item.classList.remove("active"));
+        closestItem.classList.add("active");
 
-        clearTimeout(tripsMediaContainer.scrollTimeout);
-        tripsMediaContainer.scrollTimeout = setTimeout(syncActiveItemToScroll, 100);
-    });
+        updateTripsView();
+    }
+
+
 
     // ❤️ Heart button functionality (Firebase Integration)
     heartButton.addEventListener("click", function () {
