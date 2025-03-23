@@ -2,9 +2,11 @@ window.addEventListener("load", function () {
     const preloader = document.getElementById("preloader");
     const heroSection = document.getElementById("hero");
     const heroImages = heroSection.querySelectorAll("img");
+    const texts = document.querySelectorAll(".loading-text");
     let loadedHeroImages = 0;
     let totalHeroImages = heroImages.length;
     let fontsLoaded = false;
+    let index = 0;
 
     function checkHeroLoaded() {
         if (loadedHeroImages >= totalHeroImages && fontsLoaded) {
@@ -51,4 +53,23 @@ window.addEventListener("load", function () {
         fontsLoaded = true;
         checkHeroLoaded();
     });
+
+    // Loading text cycling
+    function showNextText() {
+        if (preloader.style.opacity === "0") return; // Stop if preloader is removed
+
+        texts.forEach(text => {
+            text.style.opacity = "0";
+            text.style.transform = "translateY(5px)";
+        });
+
+        texts[index].style.opacity = "1";
+        texts[index].style.transform = "translateY(0px)";
+
+        index = (index + 1) % texts.length;
+
+        setTimeout(showNextText, 4500);
+    }
+
+    showNextText(); // Start cycling text
 });
