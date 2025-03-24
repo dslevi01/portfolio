@@ -3,27 +3,38 @@ document.addEventListener("DOMContentLoaded", function () {
     let index = 0;
 
     function showNextText() {
-        texts[index].classList.remove("active"); // Fade out current text
+        texts.forEach(text => text.style.opacity = "0"); // Start fading out all texts
+
         setTimeout(() => {
-            texts[index].style.display = "none"; // Hide after fade-out
-
-            index = (index + 1) % texts.length;
+            texts.forEach(text => text.style.display = "none"); // Hide all texts after fade-out
             texts[index].style.display = "block"; // Show next text
-            setTimeout(() => texts[index].classList.add("active"), 50); // Small delay to trigger fade-in
 
+            // Force a reflow before fading in
+            void texts[index].offsetWidth;
+            texts[index].style.opacity = "1"; // Fade in new text
         }, 500); // Matches fade-out duration
 
+        index = (index + 1) % texts.length;
         setTimeout(showNextText, 4000); // Change text every 4s
     }
 
-    // Ensure first text appears immediately and fades out properly
+    // Ensure first text is immediately visible on all devices
     if (texts.length > 0) {
-        texts[0].style.display = "block";
-        texts[0].classList.add("active"); // Ensures fade-out will work
+        texts.forEach(text => {
+            text.style.display = "none";
+            text.style.opacity = "0";
+        });
+
+        // Use requestAnimationFrame to ensure immediate rendering
+        requestAnimationFrame(() => {
+            texts[0].style.display = "block";
+            void texts[0].offsetWidth; // Force a reflow
+            texts[0].style.opacity = "1";
+        });
+
         setTimeout(showNextText, 4000);
     }
 });
-
 
 
 // **Disable scrolling function**
