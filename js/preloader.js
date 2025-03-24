@@ -69,6 +69,10 @@ window.addEventListener("load", function () {
     location.hash = "home";
     disableScroll(); // Make sure scrolling is blocked from the very start!
 
+    if (window.location.hash) {
+        history.replaceState(null, null, window.location.pathname + window.location.search);
+    }
+
     function checkLoaded() {
         if (fontsLoaded && heroImage?.complete) {
             removePreloader();

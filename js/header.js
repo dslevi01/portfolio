@@ -5,8 +5,15 @@ document.addEventListener("DOMContentLoaded", function () {
     
     if (!menuButton || !menu) return; // Ensure elements exist
 
-    // Store initial button position
-    const initialTop = menuButton.getBoundingClientRect().top + window.scrollY; 
+    let initialTop; // Declare initialTop variable
+
+    function updateInitialTop() {
+        initialTop = menuButton.getBoundingClientRect().top + window.scrollY;
+        updateButtonStyle(); // Ensure button updates immediately
+    }
+
+    window.addEventListener("load", updateInitialTop); // Update on full page load
+    window.addEventListener("resize", updateInitialTop); // Update if screen size changes
 
     menuButton.addEventListener("click", function (event) {
         document.body.classList.toggle("menu-open"); // Toggle class
