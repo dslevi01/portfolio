@@ -43,11 +43,14 @@ document.addEventListener("DOMContentLoaded", function () {
         addedImages.push(selectedImage); // Track added images
 
         setRandomPosition(selectedImage);
+
+        // ✅ Ensure last added image is on top
+        selectedImage.style.zIndex = addedImages.length;
     }
 
     function deactivateLastImage() {
         let expandedImage = document.querySelector(".sketches-image.expanded");
-    
+
         if (expandedImage) {
             document.dispatchEvent(new CustomEvent("deactivateImage", { detail: { image: expandedImage } }));
             expandedImage.classList.remove("active");
@@ -55,14 +58,13 @@ document.addEventListener("DOMContentLoaded", function () {
             addedImages = addedImages.filter(img => img !== expandedImage);
             return;
         }
-    
+
         if (addedImages.length === 0) return;
-    
+
         const lastAdded = addedImages.pop();
         lastAdded.classList.remove("active");
         lastAdded.dataset.active = "false";
     }
-    
 
     function resetImage(img) {
         img.classList.remove("expanded");

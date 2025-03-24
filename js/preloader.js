@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 500); // Fade-out duration (matches CSS)
 
         index = (index + 1) % texts.length;
-        setTimeout(showNextText, 7000); // Change text every 4.5s
+        setTimeout(showNextText, 7000); // Change text every 7s
     }
 
     // Ensure first text is visible immediately
@@ -63,17 +63,14 @@ function preventArrowKeys(event) {
 // **Force the page to stay on #home**
 window.addEventListener("load", function () {
     const preloader = document.getElementById("preloader");
-    const heroSection = document.getElementById("hero");
-    const heroImages = heroSection.querySelectorAll("img");
-    let loadedHeroImages = 0;
-    let totalHeroImages = heroImages.length;
+    const heroImage = document.querySelector("#hero img[src*='hero2.png']");
     let fontsLoaded = false;
 
     location.hash = "home";
     disableScroll(); // Make sure scrolling is blocked from the very start!
 
-    function checkHeroLoaded() {
-        if (loadedHeroImages >= totalHeroImages && fontsLoaded) {
+    function checkLoaded() {
+        if (fontsLoaded && heroImage?.complete) {
             removePreloader();
         }
     }
@@ -88,28 +85,21 @@ window.addEventListener("load", function () {
         }, 500);
     }
 
-    if (totalHeroImages === 0) {
-        loadedHeroImages = 1;
+    // Check if hero2.png is already loaded
+    if (heroImage) {
+        if (heroImage.complete) {
+            checkLoaded();
+        } else {
+            heroImage.addEventListener("load", checkLoaded);
+            heroImage.addEventListener("error", checkLoaded); // In case it fails to load
+        }
     } else {
-        heroImages.forEach(img => {
-            if (img.complete) {
-                loadedHeroImages++;
-                checkHeroLoaded();
-            } else {
-                img.addEventListener("load", () => {
-                    loadedHeroImages++;
-                    checkHeroLoaded();
-                });
-                img.addEventListener("error", () => {
-                    loadedHeroImages++;
-                    checkHeroLoaded();
-                });
-            }
-        });
+        console.warn("hero2.png not found!");
     }
 
+    // Wait for fonts to load
     document.fonts.ready.then(() => {
         fontsLoaded = true;
-        checkHeroLoaded();
+        checkLoaded();
     });
 });

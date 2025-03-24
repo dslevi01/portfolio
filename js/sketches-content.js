@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!document.querySelector(".sketches-image.expanded")) {
                 mediaContainer.classList.remove("expanding");
             }
-        }, 300);
+        }, 100);
     }
 
     mediaImages.forEach(img => {
@@ -37,7 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
             expandImage(img);
         });
 
-        img.addEventListener("touchend", (event) => {
+        img.addEventListener("touchstart", (event) => {
+            event.preventDefault(); // 🔹 Prevents long-press menu
             event.stopPropagation();
             expandImage(img);
         });
