@@ -13,14 +13,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }, 500); // Matches fade-out duration
 
-        setTimeout(showNextText, 7000); // Change text every 7s
+        setTimeout(showNextText, 4000); // Change text every 4s
     }
 
     // Ensure first text appears immediately and fades out properly
     if (texts.length > 0) {
         texts[0].style.display = "block";
         texts[0].classList.add("active"); // Ensures fade-out will work
-        setTimeout(showNextText, 7000);
+        setTimeout(showNextText, 4000);
     }
 });
 
