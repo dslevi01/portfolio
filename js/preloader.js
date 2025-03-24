@@ -64,7 +64,6 @@ function preventArrowKeys(event) {
 window.addEventListener("load", function () {
     const preloader = document.getElementById("preloader");
     const heroImage = document.querySelector("#hero img[src*='hero2.png']");
-    let fontsLoaded = false;
 
     location.hash = "home";
     disableScroll(); // Make sure scrolling is blocked from the very start!
@@ -74,7 +73,7 @@ window.addEventListener("load", function () {
     }
 
     function checkLoaded() {
-        if (fontsLoaded && heroImage?.complete) {
+        if (heroImage?.complete) {
             removePreloader();
         }
     }
@@ -101,9 +100,4 @@ window.addEventListener("load", function () {
         console.warn("hero2.png not found!");
     }
 
-    // Wait for fonts to load
-    document.fonts.ready.then(() => {
-        fontsLoaded = true;
-        checkLoaded();
-    });
 });
