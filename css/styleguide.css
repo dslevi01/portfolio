@@ -20,31 +20,3 @@
     background-color: transparent;
     border: 1px solid var(--dark);
 }
-
-/* Dark Mode */
-[data-theme="dark"] {
-    --dark: #131313;
-    --dark-d: #0D0D0D;
-    --light: #2E2E2E;
-    --light-d: #1E1E1E;
-
-    --yellow: #C89F44;
-    --yellow-d: #8D6E2F;
-
-    --green: #6D8A61;
-    --green-d: #4E6645;
-
-    --red: #B76858;
-    --red-d: #8A4D41;
-}
-
-/* Smooth Transition */
-* {
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* No Fill Style */
-.nofill { 
-    background-color: transparent;
-    border: 1px solid var(--dark);
-}
