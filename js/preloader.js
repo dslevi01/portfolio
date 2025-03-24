@@ -3,30 +3,25 @@ document.addEventListener("DOMContentLoaded", function () {
     let index = 0;
 
     function showNextText() {
-        texts.forEach(text => text.style.opacity = "0"); // Start fading out all texts
+        texts.forEach(text => text.classList.remove("active"));
         setTimeout(() => {
-            texts.forEach(text => text.style.display = "none"); // Hide all texts after fade-out
-            texts[index].style.display = "block"; // Show current text
-            setTimeout(() => {
-                texts[index].style.opacity = "1"; // Fade in current text
-            }, 50); // Small delay for a smooth transition
-        }, 500); // Fade-out duration (matches CSS)
+            texts.forEach(text => text.style.display = "none"); // Hide all texts
+            texts[index].style.display = "block";
+            texts[index].classList.add("active"); // Fade in the next text
+        }, 500); // Matches CSS transition
 
         index = (index + 1) % texts.length;
         setTimeout(showNextText, 7000); // Change text every 7s
     }
 
-    // Ensure first text is visible immediately
+    // Ensure the first text appears immediately without delay
     if (texts.length > 0) {
-        texts.forEach(text => {
-            text.style.display = "none";
-            text.style.opacity = "0";
-        });
-        texts[0].style.display = "block";
-        setTimeout(() => (texts[0].style.opacity = "1"), 50);
+        texts[0].style.display = "block"; // Show the first text immediately
+        texts[0].classList.add("active"); // Apply fade-in immediately
         setTimeout(showNextText, 7000);
     }
 });
+
 
 // **Disable scrolling function**
 function disableScroll() {

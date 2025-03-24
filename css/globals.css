@@ -215,3 +215,8 @@ textarea,
 .loading-text.active {
     opacity: 1;
 }
+
+.loading-text:first-child {
+    display: block;
+    opacity: 1;
+}
