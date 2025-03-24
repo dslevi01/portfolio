@@ -223,4 +223,6 @@
     color: var(--light);
 }
 
-
+.no-hover *:hover {
+    all: unset !important;
+}
