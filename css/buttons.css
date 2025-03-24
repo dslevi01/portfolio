@@ -214,13 +214,13 @@
 
 /* Secondary Button */
 .bt-secondary {
-    background-color: var(--green);
+    background-color: var(--light);
     color: var(--dark);
 }
 
 .bt-secondary:hover {
-    background-color: var(--green-d);
-    color: var(--green);
+    background-color: var(--dark);
+    color: var(--light);
 }
 
 
