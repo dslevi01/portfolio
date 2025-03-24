@@ -390,13 +390,13 @@
         border-top: var(--dark) 1px solid;
         padding-top: 10px;
         padding-bottom: 10px;
-        gap: 4px !important;
+        gap: 3px !important;
     }
 
 
     .sketches-bar img{
-        max-width: 8px !important;
-        max-height: 8px !important;
+        max-width: 7px !important;
+        max-height: 7px !important;
     }
 
     .media-frame {
