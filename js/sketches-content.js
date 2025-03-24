@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const mediaContainer = document.querySelector(".sketches-media");
     const mediaImages = document.querySelectorAll(".sketches-image");
 
-    let lastTapTime = 0; // Track last tap time for touch devices
+    let zIndexCounter = 10; // Start high so new images appear on top
 
     function expandImage(img) {
         if (img.classList.contains("expanded")) {
@@ -12,8 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         document.querySelectorAll(".sketches-image.expanded").forEach(resetImage);
 
+        zIndexCounter++; // Increase z-index so last expanded stays on top
+        img.style.zIndex = zIndexCounter;
+
         img.classList.add("expanded", "no-blur");
-        img.style.zIndex = "10";
         mediaContainer.classList.add("expanding");
     }
 
@@ -21,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
         img.classList.remove("expanded");
 
         setTimeout(() => {
-            img.style.zIndex = "1";
             img.classList.remove("no-blur");
 
             if (!document.querySelector(".sketches-image.expanded")) {
@@ -31,15 +32,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     mediaImages.forEach(img => {
-        img.addEventListener("dblclick", (event) => {
+        img.addEventListener("click", (event) => {
             event.stopPropagation();
             expandImage(img);
         });
 
         img.addEventListener("touchend", (event) => {
-            const currentTime = Date.now();
-            if (currentTime - lastTapTime < 300) expandImage(img);
-            lastTapTime = currentTime;
+            event.stopPropagation();
+            expandImage(img);
         });
     });
 

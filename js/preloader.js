@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 500); // Fade-out duration (matches CSS)
 
         index = (index + 1) % texts.length;
-        setTimeout(showNextText, 4500); // Change text every 4.5s
+        setTimeout(showNextText, 7000); // Change text every 4.5s
     }
 
     // Ensure first text is visible immediately
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         texts[0].style.display = "block";
         setTimeout(() => (texts[0].style.opacity = "1"), 50);
-        setTimeout(showNextText, 4500);
+        setTimeout(showNextText, 7000);
     }
 });
 

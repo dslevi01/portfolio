@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
     const container = document.querySelector(".sketches-frame");
     const mediaImages = document.querySelectorAll(".sketches-media .sketches-image");
-    
-    let isDragging = false; // Prevent page scrolling when dragging
+
+    let addedImages = []; // Track added images in order
 
     document.querySelector(".plus-bt")?.addEventListener("click", activateRandomImage);
-    document.querySelector(".minus-bt")?.addEventListener("click", deactivateRandomImage);
+    document.querySelector(".minus-bt")?.addEventListener("click", deactivateLastImage);
 
     function setRandomPosition(img) {
         let maxX = container.offsetWidth - img.offsetWidth;
@@ -16,46 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         img.style.left = `${randomX}px`;
         img.style.top = `${randomY}px`;
-    }
-
-    function dragElement(elmnt) {
-        let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-
-        elmnt.addEventListener("pointerdown", dragStart);
-
-        function dragStart(e) {
-            e.preventDefault();
-            isDragging = true;
-            pos3 = e.clientX;
-            pos4 = e.clientY;
-
-            document.addEventListener("pointermove", dragMove);
-            document.addEventListener("pointerup", dragEnd);
-        }
-
-        function dragMove(e) {
-            if (!isDragging) return;
-            e.preventDefault();
-
-            pos1 = pos3 - e.clientX;
-            pos2 = pos4 - e.clientY;
-            pos3 = e.clientX;
-            pos4 = e.clientY;
-
-            let newX = elmnt.offsetLeft - pos1;
-            let newY = elmnt.offsetTop - pos2;
-
-            elmnt.style.left = `${newX}px`;
-            elmnt.style.top = `${newY}px`;
-
-            keepInsideBounds(elmnt);
-        }
-
-        function dragEnd() {
-            isDragging = false;
-            document.removeEventListener("pointermove", dragMove);
-            document.removeEventListener("pointerup", dragEnd);
-        }
     }
 
     function keepInsideBounds(img) {
@@ -72,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function activateRandomImage() {
-        const inactiveImages = [...mediaImages].filter(img => img.dataset.active === "false");
+        const inactiveImages = [...mediaImages].filter(img => img.dataset.active !== "true");
 
         if (inactiveImages.length === 0) return;
 
@@ -80,28 +40,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
         selectedImage.classList.add("active");
         selectedImage.dataset.active = "true";
+        addedImages.push(selectedImage); // Track added images
 
         setRandomPosition(selectedImage);
-        dragElement(selectedImage);
     }
 
-    function deactivateRandomImage() {
-        const activeImages = [...mediaImages].filter(img => img.dataset.active === "true");
+    function deactivateLastImage() {
+        let expandedImage = document.querySelector(".sketches-image.expanded");
+    
+        if (expandedImage) {
+            document.dispatchEvent(new CustomEvent("deactivateImage", { detail: { image: expandedImage } }));
+            expandedImage.classList.remove("active");
+            expandedImage.dataset.active = "false";
+            addedImages = addedImages.filter(img => img !== expandedImage);
+            return;
+        }
+    
+        if (addedImages.length === 0) return;
+    
+        const lastAdded = addedImages.pop();
+        lastAdded.classList.remove("active");
+        lastAdded.dataset.active = "false";
+    }
+    
 
-        if (activeImages.length === 0) return;
+    function resetImage(img) {
+        img.classList.remove("expanded");
 
-        const selectedImage = activeImages[Math.floor(Math.random() * activeImages.length)];
+        setTimeout(() => {
+            img.style.zIndex = "1";
+            img.classList.remove("no-blur");
 
-        selectedImage.classList.remove("active");
-        selectedImage.dataset.active = "false";
+            if (!document.querySelector(".sketches-image.expanded")) {
+                container.classList.remove("expanding");
+            }
+        }, 300);
     }
 
     window.addEventListener("resize", () => {
         document.querySelectorAll(".sketches-image.active").forEach(keepInsideBounds);
     });
-
-    // Prevent scrolling while dragging
-    document.addEventListener("touchmove", function (e) {
-        if (isDragging) e.preventDefault();
-    }, { passive: false });
 });

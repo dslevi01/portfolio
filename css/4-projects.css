@@ -334,12 +334,13 @@
 
 .sketches-image {
     position: absolute;
-    width: 400px;
-    height: auto;
+    width: auto;
+    max-height: 400px;
     cursor: grab;
     display: none;
     transition: transform 0.3s steps(5, end), filter 0.3s steps(5, end);
     animation: popIn 0.5s steps(7, end);
+    border: var(--dark) 1px solid;
     z-index: 1;
     border-radius: 10px;
 }
@@ -356,7 +357,7 @@
 
 /* Expanded state */
 .sketches-image.expanded {
-    transform: scale(1.4);
+    transform: scale(1.2);
     filter: drop-shadow(5px 5px 30px var(--dark-d));
     z-index: 10;
 }

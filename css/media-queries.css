@@ -412,8 +412,8 @@
     
     .sketches-image {
         position: absolute;
-        width: 230px;
-        height: auto;
+        width: auto;
+        max-height: 280px;
         cursor: grab;
         display: none;
         transition: transform 0.3s steps(5, end), filter 0.3s steps(5, end);
@@ -422,7 +422,7 @@
     }
     
     .sketches-image.expanded {
-        transform: scale(1.4);
+        transform: scale(1.5);
         z-index: 10;
     }
 
