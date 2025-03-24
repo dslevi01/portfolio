@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const mediaContainer = document.querySelector(".sketches-media");
     const mediaImages = document.querySelectorAll(".sketches-image");
 
-    let zIndexCounter = 10; // Start high so new images appear on top
+    let zIndexCounter = 120; // Start high so new images appear on top
 
     function expandImage(img) {
         if (img.classList.contains("expanded")) {
