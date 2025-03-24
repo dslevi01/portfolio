@@ -338,8 +338,8 @@
     max-height: 400px;
     cursor: grab;
     display: none;
-    transition: transform 0.3s steps(5, end), filter 0.3s steps(5, end);
-    animation: popIn 0.5s steps(7, end);
+    transition: transform 0.3s ease;
+    animation: popIn 0.5s ease-in;
     border: var(--dark) 1px solid;
     z-index: 1;
     border-radius: 10px;
@@ -364,7 +364,7 @@
 
 .sketches-media.expanding .sketches-image:not(.expanded):not(.no-blur) {
     filter: blur(4px);
-    transition: filter 0.3s steps(5, end);
+    transition: filter 0.3s ease-in-out;
 }
 
 

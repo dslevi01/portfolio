@@ -7,6 +7,24 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".plus-bt")?.addEventListener("click", activateRandomImage);
     document.querySelector(".minus-bt")?.addEventListener("click", deactivateLastImage);
 
+
+    mediaImages.forEach(img => {
+        img.addEventListener("click", () => trackExpandedImage(img));
+        img.addEventListener("touchstart", (event) => {
+            event.preventDefault(); // Prevents long-press menu
+            trackExpandedImage(img);
+        });
+    });
+    
+    function trackExpandedImage(img) {
+        // If the image is already expanded, do nothing
+        if (img.classList.contains("expanded")) return;
+    
+        // Move the expanded image to the end of addedImages to track it correctly
+        addedImages = addedImages.filter(i => i !== img); // Remove if already in the array
+        addedImages.push(img); // Re-add to mark it as the most recent
+    }
+
     function setRandomPosition(img) {
         let maxX = container.offsetWidth - img.offsetWidth;
         let maxY = container.offsetHeight - img.offsetHeight;
@@ -48,23 +66,32 @@ document.addEventListener("DOMContentLoaded", function () {
         selectedImage.style.zIndex = addedImages.length;
     }
 
+    
     function deactivateLastImage() {
-        let expandedImage = document.querySelector(".sketches-image.expanded");
-
-        if (expandedImage) {
-            document.dispatchEvent(new CustomEvent("deactivateImage", { detail: { image: expandedImage } }));
-            expandedImage.classList.remove("active");
-            expandedImage.dataset.active = "false";
-            addedImages = addedImages.filter(img => img !== expandedImage);
-            return;
-        }
-
         if (addedImages.length === 0) return;
-
-        const lastAdded = addedImages.pop();
-        lastAdded.classList.remove("active");
-        lastAdded.dataset.active = "false";
+    
+        // Find the last added image that is expanded
+        let lastAddedExpanded = [...addedImages].reverse().find(img => img.classList.contains("expanded"));
+    
+        if (lastAddedExpanded) {
+            document.dispatchEvent(new CustomEvent("deactivateImage", { detail: { image: lastAddedExpanded } }));
+            lastAddedExpanded.classList.remove("expanded", "active");
+            lastAddedExpanded.dataset.active = "false";
+            addedImages = addedImages.filter(img => img !== lastAddedExpanded);
+        } else {
+            // Otherwise, remove the last added image normally
+            const lastAdded = addedImages.pop();
+            lastAdded.classList.remove("active");
+            lastAdded.dataset.active = "false";
+        }
+    
+        // ✅ Check if any expanded images remain, reset blur if none exist
+        if (!document.querySelector(".sketches-image.expanded")) {
+            document.querySelector(".sketches-media").classList.remove("expanding");
+        }
     }
+    
+    
 
     function resetImage(img) {
         img.classList.remove("expanded");
