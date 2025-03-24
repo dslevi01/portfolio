@@ -781,5 +781,23 @@
         font-size: .6em;
         display: none;
     }
+
+    /* Loading Text */
+    .loading-text-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 300;
+        color: var(--light-d);
+        text-align: center;
+        width: 100%;
+        max-width: 80%;
+        letter-spacing: 1%;
+        height: 40px;
+        position: absolute;
+        bottom: 15%;
+    }
 }
 
