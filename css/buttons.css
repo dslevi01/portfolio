@@ -222,7 +222,3 @@
     background-color: var(--dark);
     color: var(--light);
 }
-
-.no-hover *:hover {
-    all: unset !important;
-}
