@@ -69,10 +69,10 @@
               <s class="strike-text">Austria</s> Sweden.
           </p>
           <div class="bt-container">
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer"
-              ><button class="bt bt-primary"><div class="bt-text">BUTTON</div></button></a>
-            <a href="assets/cv-2025.pdf" target="_blank" rel="noopener noreferrer"
-              ><button class="bt bt-secondary"><div class="bt-text">SEE MY CV</div></button></a>
+                        <a href="assets/cv-2025.pdf" target="_blank" rel="noopener noreferrer"
+              ><button class="bt bt-primary"><div class="bt-text">SEE MY CV</div></button></a>
+            <a href="https://www.youtube.com/watch?v=Jip0U3ziYjA&t=436s" target="_blank" rel="noopener noreferrer"
+              ><button class="bt bt-secondary"><div class="bt-text">DRAW YOU</div></button></a>
           </div>
         </div>
 
@@ -791,7 +791,15 @@
 
     <script src="js/crafts.js"></script>
 
-
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll("img, svg, button, a").forEach(el => {
+                el.setAttribute("draggable", "false");
+                el.addEventListener("dragstart", (event) => event.preventDefault());
+            });
+        });
+    </script>
+    
     
 
 </body>

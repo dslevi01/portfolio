@@ -12,8 +12,10 @@ embed[type="application/pdf"],
 object[type="application/pdf"] {
     user-drag: none; /* Prevents dragging in WebKit browsers */
     -webkit-user-drag: none; /* Explicitly for Safari */
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;    
 }
-
 
 html {
     scroll-behavior: smooth;
